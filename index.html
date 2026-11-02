@@ -1,0 +1,2020 @@
+<!DOCTYPE html>
+<html lang="kk" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>ENT.hub — ҰБТ-ға кешенді дайындық және курстар платформасы</title>
+<style>
+/* SECTION: css-themes */
+:root,[data-theme="light"]{--line:#94a3b8;--bg:#f8fafc;--bg-gradient:radial-gradient(circle at 10% 12%,rgba(59,130,246,.08) 0%,transparent 45%),radial-gradient(circle at 90% 88%,rgba(16,185,129,.06) 0%,transparent 45%),#f8fafc;--surface:#ffffff;--surface2:#f1f5f9;--surface3:#e2e8f0;--text:#0f172a;--muted:#475569;--primary:#2563eb;--primary-hover:#1d4ed8;--primary-grad:linear-gradient(135deg,#3b82f6 0%,#1d4ed8 100%);--on-primary:#ffffff;--accent:#059669;--accent-light:#ecfdf5;--border:#cbd5e1;--danger:#dc2626;--warn:#d97706;--focus:#2563eb;--radius:12px;--font:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;--head-tt:none;--head-ls:-0.01em;--shadow:0 4px 6px -1px rgba(0,0,0,.05),0 10px 15px -3px rgba(37,99,235,.06);--shadow-hover:0 10px 22px -3px rgba(0,0,0,.08),0 14px 28px -4px rgba(37,99,235,.12);--top-bg:rgba(255,255,255,.94);--chip-bg:#eff6ff;--chip-text:#1d4ed8}
+[data-theme="dark"]{--line:#475569;--bg:#090d16;--bg-gradient:radial-gradient(circle at 15% 10%,rgba(37,99,235,.16) 0%,transparent 45%),radial-gradient(circle at 85% 90%,rgba(139,92,246,.14) 0%,transparent 45%),#090d16;--surface:#121927;--surface2:#1c2638;--surface3:#27354d;--text:#f8fafc;--muted:#94a3b8;--primary:#38bdf8;--primary-hover:#0ea5e9;--primary-grad:linear-gradient(135deg,#0284c7 0%,#38bdf8 100%);--on-primary:#061325;--accent:#10b981;--accent-light:rgba(16,185,129,.15);--border:#233249;--danger:#f87171;--warn:#fbbf24;--focus:#38bdf8;--radius:12px;--font:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;--head-tt:none;--head-ls:0;--shadow:0 4px 20px rgba(0,0,0,.4),0 0 1px rgba(255,255,255,.1);--shadow-hover:0 12px 28px rgba(0,0,0,.6),0 0 16px rgba(56,189,248,.22);--top-bg:rgba(18,25,39,.95);--chip-bg:rgba(56,189,248,.12);--chip-text:#7dd3fc}
+[data-theme="hack"]{--line:#00e5ff;--bg:#07090e;--bg-gradient:radial-gradient(circle at 10% 20%,rgba(0,229,255,.08) 0%,transparent 40%),linear-gradient(rgba(0,229,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,255,.04) 1px,transparent 1px),#07090e;--bg-size:auto,32px 32px,32px 32px,auto;--surface:#0c1017;--surface2:#121824;--surface3:#1a2334;--text:#e6f9ff;--muted:#5f8b9b;--primary:#00e5ff;--primary-hover:#ffffff;--primary-grad:linear-gradient(135deg,#00b8cc 0%,#00e5ff 100%);--on-primary:#001217;--accent:#fcee0a;--accent-light:rgba(252,238,10,.15);--border:#183848;--danger:#ff003c;--warn:#fcee0a;--focus:#00e5ff;--radius:2px;--font:"Consolas","Courier New",monospace;--head-tt:uppercase;--head-ls:.09em;--shadow:0 0 0 1px #183848,0 0 18px rgba(0,229,255,.16);--shadow-hover:0 0 0 1px #00e5ff,0 0 26px rgba(0,229,255,.4);--top-bg:rgba(7,9,14,.96);--chip-bg:rgba(0,229,255,.12);--chip-text:#00e5ff}
+[data-theme="neon"]{--line:#ff007f;--bg:#090214;--bg-gradient:radial-gradient(circle at 50% 0%,rgba(255,0,127,.25) 0%,transparent 60%),radial-gradient(circle at 10% 90%,rgba(138,43,226,.28) 0%,transparent 55%),#090214;--surface:#140626;--surface2:#210a3d;--surface3:#32105c;--text:#fff3e6;--muted:#cfabf6;--primary:#fcee0a;--primary-hover:#ffffff;--primary-grad:linear-gradient(135deg,#ff007f 0%,#fcee0a 100%);--on-primary:#120021;--accent:#ff007f;--accent-light:rgba(255,0,127,.2);--border:#52136e;--danger:#ff2a5f;--warn:#ffb703;--focus:#00f0ff;--radius:0;--font:system-ui,-apple-system,sans-serif;--head-tt:uppercase;--head-ls:.07em;--shadow:0 0 20px rgba(255,0,127,.25),0 4px 15px rgba(0,0,0,.5);--shadow-hover:0 0 30px rgba(255,0,127,.5),0 0 14px rgba(252,238,10,.35);--top-bg:rgba(20,6,38,.96);--chip-bg:rgba(255,0,127,.16);--chip-text:#ff66b2}
+[data-theme="vault"]{--line:#1ffc32;--bg:#020c04;--bg-gradient:radial-gradient(circle at 50% 50%,rgba(31,252,50,.1) 0%,transparent 70%),#020c04;--surface:#06190a;--surface2:#0c2b12;--surface3:#13401b;--text:#73f789;--muted:#38b74c;--primary:#1ffc32;--primary-hover:#73f789;--primary-grad:linear-gradient(135deg,#16a34a 0%,#1ffc32 100%);--on-primary:#021405;--accent:#ffb000;--accent-light:rgba(255,176,0,.18);--border:#124d1e;--danger:#ff5555;--warn:#ffb000;--focus:#ffb000;--radius:4px;--font:"Courier New",Consolas,monospace;--head-tt:uppercase;--head-ls:.1em;--shadow:0 0 16px rgba(31,252,50,.18);--shadow-hover:0 0 26px rgba(31,252,50,.38);--top-bg:rgba(6,25,10,.96);--chip-bg:rgba(31,252,50,.14);--chip-text:#73f789}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--bg-gradient,var(--bg));background-size:var(--bg-size,auto);color:var(--text);font-family:var(--font);font-size:16px;line-height:1.55;min-height:100vh;position:relative}
+#live-bg{position:fixed;inset:0;width:100vw;height:100vh;pointer-events:none;z-index:1}
+#app{position:relative;z-index:2}
+[data-theme="hack"] body::after,[data-theme="vault"] body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:50;background:repeating-linear-gradient(to bottom,rgba(0,229,255,.02) 0 1px,transparent 1px 3px)}
+[data-theme="vault"] body::after{background:repeating-linear-gradient(to bottom,rgba(31,252,50,.025) 0 1px,transparent 1px 3px)}
+[data-theme="hack"] .card{clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));border-color:var(--border)}
+[data-theme="hack"] .btn{clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px));text-transform:uppercase;letter-spacing:.08em}
+h1,h2,h3{line-height:1.25;margin:0 0 .5em;text-transform:var(--head-tt);letter-spacing:var(--head-ls);font-weight:800}
+h1{font-size:clamp(1.7rem,6vw,2.7rem)}
+h2{font-size:clamp(1.3rem,4.2vw,1.75rem)}
+h3{font-size:1.15rem}
+p{margin:0 0 1em}
+a{color:var(--primary);text-decoration:none;transition:color .15s ease}
+a:hover{text-decoration:underline}
+ul,ol{padding-left:1.2em}
+.wrap{max-width:1140px;margin:0 auto;padding:0 16px}
+.skip{position:absolute;left:-999px;top:8px;background:var(--primary);color:var(--on-primary);padding:8px 14px;z-index:100;border-radius:var(--radius)}
+.skip:focus{left:8px}
+:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+main{padding:28px 0 54px;outline:none}
+section{margin-bottom:36px}
+.muted{color:var(--muted)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.top{position:sticky;top:0;z-index:30;background:var(--top-bg);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--border);transition:background .25s ease,border-color .25s ease}
+.bar{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;padding-top:10px;padding-bottom:10px}
+.logo{display:inline-flex;align-items:center;gap:8px;font-weight:850;font-size:1.45rem;text-decoration:none;color:var(--text);margin-right:auto;letter-spacing:-0.02em}
+.logo span{color:var(--primary)}
+.logo-tag{font-size:.7rem;padding:2px 7px;border-radius:999px;background:var(--chip-bg);color:var(--chip-text);border:1px solid var(--border);font-weight:700;letter-spacing:.05em;text-transform:uppercase}
+[data-theme="hack"] .logo{text-shadow:2px 0 #ff003c,-2px 0 #00e5ff}
+[data-theme="neon"] .logo{text-shadow:0 0 10px rgba(255,0,127,.6)}
+.burger{min-height:42px;padding:8px 14px;background:var(--surface2);color:var(--text);border:1px solid var(--border);border-radius:var(--radius);font:inherit;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+nav{width:100%;order:3;display:none;margin-top:8px}
+nav.open{display:block}
+nav ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:4px}
+nav a,nav button.link{display:flex;align-items:center;min-height:42px;padding:8px 14px;border-radius:var(--radius);text-decoration:none;color:var(--text);font:inherit;font-weight:600;background:none;border:0;cursor:pointer;width:100%;text-align:left;transition:all .15s ease}
+nav a:hover,nav button.link:hover{background:var(--surface2);color:var(--primary)}
+nav a[aria-current="page"]{background:var(--primary-grad,var(--primary));color:var(--on-primary);font-weight:700;box-shadow:0 2px 8px rgba(37,99,235,.25)}
+.tools{display:flex;align-items:center;gap:8px;order:2}
+.user-badge{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;background:var(--surface2);border:1px solid var(--border);border-radius:999px;font-size:.88rem;font-weight:700;color:var(--text)}
+.user-badge .role-tag{font-size:.72rem;padding:1px 6px;background:var(--chip-bg);color:var(--chip-text);border-radius:4px;border:1px solid var(--border)}
+@media(min-width:960px){.burger{display:none}nav{display:block;width:auto;order:2;margin-top:0}nav ul{flex-direction:row;flex-wrap:wrap;align-items:center}nav a,nav button.link{width:auto}.tools{order:3}}
+.grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+.card:hover{box-shadow:var(--shadow-hover);border-color:var(--primary)}
+.card h3{margin-bottom:.4em}
+.hero{padding:26px 0 14px;text-align:left}
+.hero-tag{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;background:var(--chip-bg);color:var(--chip-text);border:1px solid var(--border);border-radius:999px;font-size:.85rem;font-weight:700;margin-bottom:14px}
+.hero h1{max-width:24ch}
+.hero p{font-size:1.15rem;max-width:62ch;color:var(--muted);line-height:1.6}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:10px 20px;border-radius:var(--radius);border:1px solid transparent;background:var(--primary-grad,var(--primary));color:var(--on-primary);font:inherit;font-weight:700;cursor:pointer;text-decoration:none;box-shadow:0 2px 6px rgba(0,0,0,.1);transition:transform .15s ease,box-shadow .15s ease,opacity .15s ease}
+.btn:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(37,99,235,.25);text-decoration:none}
+.btn:active{transform:translateY(0)}
+.btn.ghost{background:var(--surface2);color:var(--text);border:1px solid var(--border);box-shadow:none}
+.btn.ghost:hover{background:var(--surface3);border-color:var(--primary)}
+.btn.danger{background:transparent;color:var(--danger);border:1px solid var(--danger)}
+.btn.danger:hover{background:var(--danger);color:#fff}
+.btn.sm{min-height:36px;padding:6px 12px;font-size:.9rem}
+.btn[aria-pressed="true"]{outline:3px solid var(--accent);outline-offset:2px}
+label{display:block;font-weight:700;font-size:.92rem;margin-bottom:6px}
+input,select,textarea{width:100%;min-height:44px;padding:10px 14px;background:var(--surface);color:var(--text);border:1.5px solid var(--border);border-radius:var(--radius);font:inherit;transition:border-color .15s ease,box-shadow .15s ease}
+input:focus,select:focus,textarea:focus{border-color:var(--focus);box-shadow:0 0 0 3px rgba(37,99,235,.18);outline:none}
+.tools select{width:auto;min-height:38px;padding:4px 10px;font-weight:600}
+input[type="radio"],input[type="checkbox"]{width:auto;min-height:0;cursor:pointer}
+.field{margin-bottom:16px}
+.form-grid{display:grid;grid-template-columns:1fr;gap:12px 18px}
+@media(min-width:640px){.form-grid{grid-template-columns:1fr 1fr}.form-grid .full{grid-column:1 / -1}}
+.reg-card{max-width:680px;margin:0 auto}
+.login-card{max-width:440px;margin:0 auto}
+.filters{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));margin-bottom:20px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px}
+.filter-field label{font-size:.86rem;margin-bottom:4px}
+.price-input-wrap{position:relative;display:flex;align-items:center}
+.price-input-wrap input{padding-right:32px;font-weight:700}
+.price-input-wrap .currency{position:absolute;right:12px;color:var(--muted);font-weight:700;pointer-events:none}
+.quick-prices{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
+.btn-chip{padding:3px 8px;font-size:.78rem;font-weight:600;border-radius:4px;border:1px solid var(--border);background:var(--surface2);color:var(--text);cursor:pointer;transition:all .15s ease}
+.btn-chip:hover{border-color:var(--primary);color:var(--primary)}
+.badge{display:inline-flex;align-items:center;gap:4px;padding:3px 10px;border-radius:999px;background:var(--surface2);border:1px solid var(--border);font-size:.82rem;font-weight:600;margin:0 4px 6px 0}
+.badge.ok{border-color:var(--accent);color:var(--accent);background:var(--accent-light)}
+.badge.promo{border-color:#ff007f;color:#ff007f;background:rgba(255,0,127,.12);font-weight:800}
+.note{border-left:4px solid var(--warn);background:var(--surface2);padding:12px 16px;border-radius:var(--radius);font-size:.94rem;margin-bottom:18px}
+.meter{height:12px;border-radius:99px;background:var(--surface2);border:1px solid var(--border);overflow:hidden}
+.meter span{display:block;height:100%;background:linear-gradient(90deg,#10b981,#059669);transition:width .3s ease}
+.meter.low span{background:linear-gradient(90deg,#f87171,#dc2626)}
+.stat{font-size:2.2rem;font-weight:850;line-height:1;color:var(--primary);margin:6px 0}
+.dots{display:flex;gap:6px;margin-top:10px}
+.dots i{width:18px;height:18px;border-radius:50%;background:var(--surface2);border:2px solid var(--border)}
+.dots i.on{background:var(--accent);border-color:var(--accent)}
+.tablewrap{overflow-x:auto;margin-bottom:16px;border-radius:var(--radius);border:1px solid var(--border)}
+table{border-collapse:collapse;width:100%;min-width:500px;background:var(--surface)}
+caption{text-align:left;font-weight:700;padding:10px 14px;font-size:1.05rem}
+th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--border);vertical-align:middle}
+th{background:var(--surface2);font-weight:700;font-size:.9rem;color:var(--muted)}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:var(--surface2)}
+.opt{display:flex;gap:12px;align-items:center;padding:12px 16px;border:1.5px solid var(--border);border-radius:var(--radius);margin-bottom:10px;cursor:pointer;font-weight:500;background:var(--surface);transition:all .15s ease}
+.opt:hover{border-color:var(--primary);background:var(--surface2)}
+.opt:has(input:checked){border-color:var(--primary);background:var(--chip-bg);font-weight:700}
+fieldset{border:0;padding:0;margin:0 0 14px}
+legend{font-weight:700;font-size:1.1rem;margin-bottom:12px}
+.result{margin-top:12px;font-weight:700}
+.chat{list-style:none;margin:0 0 14px;padding:0;max-height:360px;overflow-y:auto}
+.msg{padding:10px 14px;border-radius:var(--radius);background:var(--surface2);margin-bottom:10px}
+.msg.me{background:var(--chip-bg);border:1px solid var(--primary)}
+.msg small{color:var(--muted);font-weight:600}
+.blurred .txt{filter:blur(6px);user-select:none}
+.rooms{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.themes{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(130px,1fr))}
+.sw{display:flex;gap:4px;margin-top:6px}
+.sw i{width:22px;height:14px;border-radius:3px;border:1px solid var(--border)}
+details{border:1px solid var(--border);border-radius:var(--radius);padding:12px 16px;margin-bottom:12px;background:var(--surface)}
+summary{cursor:pointer;font-weight:700;min-height:28px}
+.tree{list-style:none;padding-left:0}
+.tree li{padding:8px 0;border-top:1px solid var(--border)}
+.demo-creds{margin-top:24px;border-style:dashed}
+.demo-creds summary{color:var(--primary)}
+.creds-grid{display:grid;gap:8px;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));margin-top:10px}
+.cred-chip{text-align:left;padding:8px 12px;background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);cursor:pointer;font:inherit;transition:all .15s ease}
+.cred-chip:hover{border-color:var(--primary);background:var(--chip-bg)}
+.cred-chip strong{display:block;font-size:.88rem;color:var(--text)}
+.cred-chip small{display:block;font-size:.78rem;color:var(--muted);margin-top:2px}
+.contacts-bar{display:flex;flex-wrap:wrap;gap:12px;font-size:.88rem;font-weight:600;margin:8px 0;padding:6px 10px;background:var(--surface2);border-radius:var(--radius)}
+.contacts-bar a{display:inline-flex;align-items:center;gap:4px}
+.course-promo-banner{background:var(--surface);border:1.5px solid var(--primary);border-radius:var(--radius);padding:16px 20px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}
+footer{border-top:1px solid var(--border);padding:24px 0;color:var(--muted);font-size:.92rem;background:var(--surface)}
+#toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);max-width:92vw;background:var(--text);color:var(--bg);padding:12px 22px;border-radius:var(--radius);z-index:99;opacity:0;pointer-events:none;font-weight:600;box-shadow:0 10px 25px rgba(0,0,0,.25);transition:opacity .25s ease,transform .25s ease}
+#toast.show{opacity:1;transform:translateX(-50%) translateY(-4px)}
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.68);backdrop-filter:blur(6px);z-index:90;display:flex;align-items:center;justify-content:center;padding:16px}
+.modal-box{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow-hover);max-width:580px;width:100%;max-height:90vh;overflow-y:auto;padding:26px}
+.test-nav-pills{display:flex;flex-wrap:wrap;gap:6px;margin:14px 0}
+.test-pill{width:36px;height:36px;border-radius:var(--radius);border:1px solid var(--border);background:var(--surface2);color:var(--text);display:flex;align-items:center;justify-content:center;font-weight:700;cursor:pointer;font-size:.88rem}
+.test-pill.curr{border-color:var(--primary);background:var(--primary);color:var(--on-primary)}
+.test-pill.done{border-color:var(--accent);color:var(--accent);background:var(--accent-light)}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<canvas id="live-bg"></canvas>
+<div id="app"></div>
+<div id="modal-container"></div>
+<noscript>ENT.hub: JavaScript қажет / нужен JavaScript / JavaScript is required.</noscript>
+<script>
+(function () {
+'use strict';
+// SECTION: config
+var STORE_KEY = 'enthub:v2:settings';
+var USER_KEY = 'enthub:v2:user';
+var REQ_KEY = 'enthub:v2:requests';
+var AUDIT_KEY = 'enthub:v2:audit';
+var LANGS = { kk: 'Қазақша', ru: 'Русский', en: 'English' };
+var LOCALE = { kk: 'kk-KZ', ru: 'ru-RU', en: 'en-US' };
+var THEMES = ['light', 'dark', 'hack', 'neon', 'vault'];
+var ROLES = ['guest', 'student', 'teacher', 'provider', 'moderator', 'content', 'admin', 'superadmin'];
+var PRESET_ACCOUNTS = [
+{ login: 'admin@ent.hub', pass: 'admin123', role: 'admin', name: 'Нұрсұлтан (Администратор)' },
+{ login: 'admin', pass: 'admin', role: 'admin', name: 'Нұрсұлтан (Администратор)' },
+{ login: 'superadmin@ent.hub', pass: 'super123', role: 'superadmin', name: 'Бас әкімші' },
+{ login: 'teacher@ent.hub', pass: 'teacher123', role: 'teacher', name: 'Айгерім С. (Оқытушы)' },
+{ login: 'teacher', pass: 'teacher', role: 'teacher', name: 'Айгерім С. (Оқытушы)' },
+{ login: 'moderator@ent.hub', pass: 'mod123', role: 'moderator', name: 'Данияр Т. (Модератор)' },
+{ login: 'moderator', pass: 'moderator', role: 'moderator', name: 'Данияр Т. (Модератор)' },
+{ login: 'content@ent.hub', pass: 'content123', role: 'content', name: 'Әсел Қ. (Контент)' },
+{ login: 'provider@ent.hub', pass: 'provider123', role: 'provider', name: 'Daryn Online (Провайдер)' },
+{ login: 'student@ent.hub', pass: 'student123', role: 'student', name: 'Айгерім' },
+{ login: 'student', pass: 'student', role: 'student', name: 'Айгерім' }
+];
+var ACCESS = {
+guest: ['courses', 'teachers'],
+student: ['dashboard', 'subjects', 'tests', 'ai', 'courses', 'teachers', 'community', 'profile'],
+teacher: ['panel', 'courses', 'teachers', 'community', 'profile'],
+provider: ['panel', 'courses'],
+moderator: ['panel', 'admin', 'community'],
+content: ['panel', 'subjects'],
+admin: ['panel', 'admin', 'subjects', 'courses', 'teachers', 'community'],
+superadmin: ['panel', 'admin', 'subjects', 'courses', 'teachers', 'community']
+};
+var PUBLIC = ['home', 'login', 'register', 'test-runner'];
+var STREAK_RULES = { perDay: 0.25, max: 15, dailyGoal: 20 };
+var DEFAULT_USER = {
+first: 'Айгерім',
+last: 'Серікбай',
+phone: '+7 (777) 123-45-67',
+city: 'almaty',
+grade: '11',
+profilePair: 'math_phys',
+targetScore: 125,
+email: 'student@ent.hub',
+streakDays: 18,
+bestDays: 21,
+todayDone: 12
+};
+// SECTION: i18n
+var T = {
+kk: {
+'ui.skip': 'Негізгі мазмұнға өту', 'ui.menu': 'Мәзір', 'ui.mainNav': 'Негізгі навигация',
+'ui.lang': 'Тіл', 'ui.theme': 'Тема', 'ui.role': 'Рөл', 'ui.demoBar': 'Демо-режим',
+'ui.footer': 'ENT.hub — ҰБТ-ға кешенді дайындық және курстар платформасы.',
+'ui.noAccess': 'Қолжетімсіз', 'ui.noAccessText': 'Бұл бет таңдалған рөл үшін ашық емес. Кіру бетінен тиісті аккаунтпен кіріңіз.',
+'ui.start': 'Бастау', 'ui.soon': 'Тақырыптар келесі кезеңде қосылады.', 'ui.test': 'Сынақ деректері',
+'nav.home': 'Басты бет', 'nav.dashboard': 'Жеке кабинет', 'nav.subjects': 'Пәндер', 'nav.tests': 'Тесттер',
+'nav.ai': 'AI жаттығу', 'nav.courses': 'Курстар', 'nav.teachers': 'Оқытушылар', 'nav.community': 'Қауымдастық',
+'nav.profile': 'Профиль', 'nav.panel': 'Рөл панелі', 'nav.admin': 'Әкімшілік', 'nav.login': 'Кіру',
+'nav.register': 'Тіркелу', 'nav.logout': 'Шығу',
+'role.guest': 'Қонақ', 'role.student': 'Оқушы', 'role.teacher': 'Оқытушы', 'role.provider': 'Курс провайдері',
+'role.moderator': 'Модератор', 'role.content': 'Контент-менеджер', 'role.admin': 'Әкімші', 'role.superadmin': 'Бас әкімші',
+'rights.guest': 'Лендинг; ашық каталог; тіркелу',
+'rights.student': 'AI; тесттер; профиль; streak; курстар; оқытушылар; чат',
+'rights.teacher': 'Профиль; өтінімдер; кесте және қызметтер; пікірлер',
+'rights.provider': 'Курс карточкалары; бағалар; өтінімдер; аналитика',
+'rights.moderator': 'Шағымдар; чат; модерация кезегі',
+'rights.content': 'Пәндер; тақырыптар; материалдар; сұрақтар',
+'rights.admin': 'Пайдаланушылар; рөлдер; marketplace; модерация; баптаулар',
+'rights.superadmin': 'Инфрақұрылымдық және маңызды баптаулар',
+'theme.light': 'Luminous (Жарық)', 'theme.dark': 'Midnight (Қараңғы)', 'theme.hack': 'Watch Dogs (DedSec)', 'theme.neon': 'Cyberpunk (Неон)', 'theme.vault': 'Pip-Boy (Vault)',
+'hero.title': 'ҰБТ-ға жеке жоспармен және AI-мен дайындалыңыз',
+'hero.sub': 'Диагностика, әлсіз тақырыптар бойынша жаттығу, тәжірибелі репетиторлар және өлшенетін прогресс — бір жерде.',
+'hero.cta1': 'Бастау (Тіркелу)', 'hero.cta2': 'Курстар каталогы', 'hero.dash': 'Кабинетке өту',
+'hero.tag': 'ҰБТ 2027 дайындық платформасы',
+'ft.title': 'Платформа мүмкіндіктері',
+'f1.t': 'Білім диагностикасы', 'f1.d': 'Әр пән бойынша нақты әлсіз тақырыптарды анықтайды',
+'f2.t': 'AI жаттығуы', 'f2.d': 'Әлсіз тақырыптар бойынша тапсырмалар, қателер түсіндірмесімен',
+'f3.t': 'AI Tutor', 'f3.d': 'Шешімді ашпайтын кеңестер мен алгоритмдер',
+'f4.t': 'ҰБТ симуляторы', 'f4.d': 'Шағын ҰБТ және нақты уақытпен толық емтихан режимі',
+'f5.t': 'Курстар мен оқытушылар', 'f5.d': 'Қала, пән, баға және оқу форматы бойынша сүзгілері бар каталог',
+'f6.t': 'Серия және жеңілдік', 'f6.d': 'Әр оқу күні үшін +0,25 п.п., ең көбі 15% жеңілдік',
+'how.title': 'Дайындық қалай жүреді?',
+'s1': 'Толық тіркелу және бейінді пәндерді таңдау',
+'s2': 'Бастапқы диагностикалық тест тапсыру',
+'s3': 'AI және үздік оқытушылармен күнделікті жаттығу',
+'s4': 'Жоғары нәтиже және грантқа түсу',
+'au.email': 'Email немесе логин', 'au.password': 'Құпиясөз', 'au.password2': 'Құпиясөзді қайталаңыз',
+'au.forgot': 'Құпиясөзді ұмыттыңыз ба?', 'au.demo': 'Демо-платформа: кез келген оқушы тіркеліп, барлық мүмкіндіктерді қолдана алады.',
+'au.noAcc': 'Аккаунт жоқ па?', 'au.hasAcc': 'Аккаунтыңыз бар ма?',
+'au.regTitle': 'ҰБТ-ға дайындықты бастау',
+'au.regSub': 'Барлық деректерді толтырып, жеке оқу бағдарламасын жасаңыз:',
+'au.firstName': 'Атыңыз', 'au.lastName': 'Тегіңіз', 'au.phone': 'Телефон нөмірі',
+'au.city': 'Қала / Өңір', 'au.grade': 'Сынып / Оқу деңгейі', 'au.profilePair': 'Бейіндік пәндер жұбы',
+'au.targetScore': 'Мақсатты балл (макс. 140)',
+'au.agree': 'Пайдалану шарттарымен және құпиялылық саясатымен келісемін',
+'au.regBtn': 'Тіркелу және бастау', 'au.loginBtn': 'Жүйеге кіру',
+'au.demoCredsTitle': 'Қызметтік аккаунттар (Әкімші, Оқытушы, т.б.)',
+'au.demoCredsDesc': 'Әкімшілер мен қызметкерлер үшін бекітілген логиндер мен құпиясөздер (бір басумен толтыру):',
+'au.fillAll': 'Барлық міндетті өрістерді толтырыңыз!',
+'au.passMismatch': 'Құпиясөздер сәйкес келмейді!',
+'toast.regSuccess': 'Тіркелу сәтті аяқталды! Қош келдіңіз!',
+'toast.loginSuccess': 'Жүйеге кірдіңіз: {role}',
+'toast.loginFail': 'Қате логин немесе құпиясөз!',
+'pair.math_phys': 'Математика — Физика', 'pair.chem_bio': 'Химия — Биология',
+'pair.math_info': 'Математика — Информатика', 'pair.geo_world': 'География — Дүниежүзі тарихы',
+'pair.lang_lit': 'Қазақ тілі — Қазақ әдебиеті', 'pair.eng_hist': 'Шет тілі — Қазақстан тарихы',
+'pair.geo_math': 'География — Математика',
+'grade.11': '11-сынып (ҰБТ 2027)', 'grade.10': '10-сынып (ҰБТ 2028)', 'grade.college': 'Колледж студенті / Түлек',
+'db.hello': 'Сәлем, {name}!', 'db.streak': 'Серия', 'db.days': 'күн', 'db.best': 'Үздік серия',
+'db.discount': 'Жинақталған жеңілдік', 'db.discountNote': 'Әр күн +0,25 п.п., ең көбі 15%.',
+'db.goal': 'Бүгінгі норма', 'db.questions': 'сұрақ', 'db.progress': 'Пәндер бойынша прогресс',
+'db.weak': 'Әлсіз тақырыптар', 'db.recent': 'Соңғы әрекеттер',
+'db.targetCard': 'Мақсатты балл',
+'th.date': 'Күні', 'th.mode': 'Режим', 'th.subject': 'Пән', 'th.score': 'Нәтиже', 'th.name': 'Аты', 'th.status': 'Мәртебе',
+'th.type': 'Түрі', 'th.target': 'Объект', 'th.actions': 'Әрекеттер', 'th.email': 'Email', 'th.role': 'Рөл', 'th.actor': 'Автор', 'th.action': 'Әрекет', 'th.topic': 'Тақырып',
+'sub.title': 'Пәндер мен тақырыптар', 'sub.note': 'Каталог бапталады; төмендегі тізім — сынақ нұсқасы.',
+'sub.core': 'Міндетті пәндер', 'sub.profile': 'Бейіндік пәндер', 'sub.mastery': 'меңгеру',
+'mode.practice': 'Жаттығу (5 сұрақ)', 'mode.test': 'Тест (8 сұрақ)', 'mode.mistakes': 'Қатемен жұмыс (5 сұрақ)', 'mode.mini': 'Шағын ҰБТ (10 сұрақ, 15 мин)', 'mode.full': 'ҰБТ симуляторы (15 сұрақ, 25 мин)',
+'tests.title': 'Тесттер', 'tests.sample': 'Тапсырма үлгісі', 'q.legend': '2x + 6 = 14 теңдеуін шешіңіз', 'q.check': 'Жауапты тексеру',
+'q.right': 'Дұрыс! x = 4.', 'q.wrong': 'Қате. Қайта көріңіз.', 'q.pick': 'Жауап таңдаңыз.',
+'tests.resultTitle': 'Нәтиже үлгісі', 'tests.resultText': 'Дұрыс жауап: 18 / 25. Әлсіз тақырып: Квадрат теңдеулер.',
+'ai.title': 'AI жаттығу', 'ai.gen': 'Тапсырма генераторы', 'ai.level': 'Күрделілік', 'ai.type': 'Тапсырма түрі',
+'ai.l1': 'Жеңіл', 'ai.l2': 'Орташа', 'ai.l3': 'Күрделі', 'ai.t1': 'Бір жауап', 'ai.t2': 'Бірнеше жауап', 'ai.t3': 'Ашық жауап',
+'ai.generate': 'Тапсырма жасау', 'ai.stub': 'AI арқылы жасалған нақты тапсырма:',
+'ai.sampleTask': 'Тапсырма: x² − 5x + 6 = 0 теңдеуінің түбірлерін табыңыз.',
+'ai.hint': 'Кеңес', 'ai.explain': 'Түсіндірме',
+'ai.hintText': 'Кеңес: көбейткіштерге жіктеп көріңіз немесе дискриминантты есептеңіз.',
+'ai.explainText': 'Түсіндірме: D = 25 − 24 = 1, түбірлері x = 2 және x = 3.',
+'ai.tutor': 'AI Tutor', 'ai.tutorLabel': 'Сұрағыңыз', 'ai.send': 'Жіберу',
+'ai.tutorHello': 'Сәлем! Қай тақырыпта көмектесейін?',
+'ai.tutorReply': 'Керемет сұрақ! Дайындық бойынша толық түсіндірме төменде берілді.',
+'com.title': 'Қауымдастық', 'com.rooms': 'Бөлмелер', 'com.write': 'Хабарлама', 'com.send': 'Жіберу',
+'com.report': 'Шағым', 'com.hidden': 'Модерация жасырды', 'com.show': 'Көрсету', 'com.you': 'Сіз',
+'room.general': 'Жалпы', 'room.math': 'Математика', 'room.history': 'Қазақстан тарихы', 'room.physics': 'Физика',
+'pr.title': 'Профиль', 'pr.first': 'Аты', 'pr.last': 'Тегі', 'pr.city': 'Қала', 'pr.grade': 'Сынып', 'pr.target': 'Мақсатты балл',
+'pr.save': 'Сақтау', 'pr.settings': 'Тіл және тема', 'pr.data': 'Деректер', 'pr.export': 'Деректерді экспорттау', 'pr.delete': 'Аккаунтты жою',
+'toast.stage2': 'Бұл әрекет келесі кезеңде жұмыс істейді.', 'toast.saved': 'Деректер сәтті сақталды!', 'toast.sent': 'Хабарлама жіберілді.',
+'toast.login': 'Демо-кіру орындалды.',
+'fl.city': 'Қала', 'fl.subject': 'Пән', 'fl.format': 'Формат', 'fl.price': 'Ең жоғары баға, ₸', 'fl.any': 'Барлығы',
+'fl.priceAny': 'Барлық баға', 'fmt.online': 'Онлайн', 'fmt.offline': 'Офлайн', 'found': 'Табылды', 'c.title': 'Курстар каталогы',
+'c.apply': 'Өтінім қалдыру', 'c.verified': 'Тексерілген', 'perMonth': '₸ / ай', 'perHour': '₸ / сағат', 'exp': 'жыл тәжірибе', 'rating': 'Рейтинг',
+'t.title': 'Жеке оқытушылар', 'empty': 'Ештеңе табылмады. Сүзгі параметрлерін өзгертіп көріңіз.',
+'pn.title': 'Рөл панелі', 'pn.rights': 'Рөл құқықтары', 'pn.note': 'Бұл рөлдің жұмыс экрандары келесі кезеңдерде кеңейтіледі.',
+'tb.requests': 'Өтінімдер', 'tb.questions': 'Сұрақтар', 'st.new': 'Жаңа', 'st.review': 'Тексеруде', 'st.published': 'Жарияланған', 'st.draft': 'Жоба', 'st.pending': 'Модерацияда',
+'ad.title': 'Әкімшілік', 'ad.queue': 'Модерация кезегі', 'ad.users': 'Пайдаланушылар', 'ad.audit': 'Аудит журналы',
+'act.approve': 'Бекіту', 'act.reject': 'Қабылдамау',
+'ty.message': 'Чат хабарламасы', 'ty.course': 'Курс', 'ty.teacher': 'Оқытушы', 'ty.report': 'Шағым',
+'au.act1': 'Курс бекітілді', 'au.act2': 'Рөл өзгертілді', 'au.act3': 'Хабарлама жасырылды',
+'test.modeTitle': 'Тестілеу режимі', 'test.finish': 'Тестті аяқтау', 'test.prev': '← Алдыңғы', 'test.next': 'Келесі →',
+'test.time': 'Уақыт', 'test.qNum': 'Сұрақ', 'test.result': 'Тест нәтижесі', 'test.score': 'Жиналған балл',
+'test.retake': 'Қайта тапсыру', 'test.toDash': 'Кабинетке қайту', 'test.review': 'Қатемен жұмыс және түсіндірмелер',
+'test.yourAns': 'Сіздің жауабыңыз', 'test.rightAns': 'Дұрыс жауап', 'test.skipped': 'Жауап берілмеді',
+'mod.applyTitle': 'Өтінім қалдыру', 'mod.applyName': 'Оқушының аты-жөні', 'mod.applyPhone': 'Телефон нөмірі',
+'mod.applyNote': 'Қосымша сұрақ немесе ыңғайлы уақыт', 'mod.applySend': 'Өтінімді жіберу',
+'mod.applySuccess': 'Өтініміңіз қабылданды! Жақында менеджер хабарласады.', 'mod.close': 'Жабу',
+'mod.reportTitle': 'Хабарламаға шағым түсіру', 'mod.reportReason': 'Шағым себебі',
+'mod.reason1': 'Спам немесе жарнама', 'mod.reason2': 'Дөрекілік немесе қорлау', 'mod.reason3': 'Тақырыптан тыс хабарлама',
+'mod.reportSend': 'Модерацияға жіберу', 'mod.reportSuccess': 'Шағым модерация кезегіне жіберілді.',
+'mod.forgotTitle': 'Құпиясөзді қалпына келтіру', 'mod.forgotDesc': 'Тіркелген email мекенжайыңызды енгізіңіз:',
+'mod.getCode': 'Растау кодын алу', 'mod.codeHint': 'Демо-код жіберілді: {code}', 'mod.enterCode': 'Растау коды',
+'mod.newPass': 'Жаңа құпиясөз', 'mod.savePass': 'Құпиясөзді өзгерту',
+'mod.passUpdated': 'Құпиясөз сәтті өзгертілді! Жүйеге кіре аласыз.', 'mod.delTitle': 'Аккаунтты жоюды растау',
+'mod.delDesc': 'Барлық оқу прогресі, жиналған жеңілдік пен деректер өшіріледі. Сенімдісіз бе?',
+'mod.delConfirm': 'Иә, аккаунтты өшіру', 'mod.delCancel': 'Болдырмау', 'mod.delSuccess': 'Аккаунт деректері өшірілді.',
+'mod.exportSuccess': 'Деректер JSON форматында жүктелді!', 'ad.approved': 'Бекітілді', 'ad.rejected': 'Қабылданбады',
+'c.promoteBtn': 'Курсты тіркеу және жарнамалау', 'c.promoted': 'Топ-жарнама',
+'c.bannerTitle': 'Оқу орталықтары мен курстарға серіктестік',
+'c.bannerDesc': 'Курсыңызды платформаға тіркеп, мыңдаған оқушыға жарнамалаңыз.',
+'mod.promoteTitle': 'Курсты тіркеу, верификация және жарнама',
+'mod.centerName': 'Орталық / Ұйым атауы', 'mod.repName': 'Жауапты тұлға (Аты-жөні)',
+'mod.repPhone': 'Байланыс телефоны', 'mod.repEmail': 'Корпоративтік Email',
+'mod.courseTitle': 'Курс атауы', 'mod.coursePrice': 'Оқу ақысы (айына, ₸)',
+'mod.license': 'БИН / Лицензия нөмірі', 'mod.adDuration': 'Сайтта жарнамалау мерзімі',
+'mod.adCost': 'Жарнама құны', 'mod.payMethod': 'Төлем әдісі',
+'mod.payKaspi': 'Kaspi Pay (QR төлем)', 'mod.payCard': 'Банк картасы (Visa/MasterCard)',
+'mod.payBtn': 'Төлеу және жарнаманы бастау',
+'mod.promoteSuccess': 'Курс сәтті тіркелді және жарнама жарияланды!',
+'test.goalAdded': 'Күнделікті нормаға +{count} сұрақ қосылды!', 'test.correct': 'дұрыс жауап',
+'sub.startTest': 'Осы пәннен тест бастау', 'mod.applyPlaceholder': 'Кешкі сабақтар немесе онлайн формат...',
+'mod.badCode': 'Қате код немесе құпиясөз бос!', 'contacts.phone': 'Тел', 'contacts.email': 'Email',
+'ai.solveCheck': 'Жауапты тексеру', 'ai.sampleGen': 'AI арқылы жасалған нақты тапсырма:',
+'dur.7': '7 күн (1 апта) — 15 000 ₸', 'dur.14': '14 күн (2 апта) — 28 000 ₸',
+'dur.30': '30 күн (1 ай — Топ ұсыныс) — 50 000 ₸', 'dur.90': '90 күн (3 ай — Бас серіктес) — 120 000 ₸'
+},
+ru: {
+'ui.skip': 'Перейти к основному содержимому', 'ui.menu': 'Меню', 'ui.mainNav': 'Основная навигация',
+'ui.lang': 'Язык', 'ui.theme': 'Тема', 'ui.role': 'Роль', 'ui.demoBar': 'Демо-режим',
+'ui.footer': 'ENT.hub — комплексная подготовка к ЕНТ и маркетплейс курсов.',
+'ui.noAccess': 'Нет доступа', 'ui.noAccessText': 'Эта страница недоступна для вашей роли. Войдите с соответствующим аккаунтом.',
+'ui.start': 'Начать', 'ui.soon': 'Темы будут добавлены на следующем этапе.', 'ui.test': 'Тестовые данные',
+'nav.home': 'Главная', 'nav.dashboard': 'Дашборд', 'nav.subjects': 'Предметы', 'nav.tests': 'Тесты',
+'nav.ai': 'AI-подготовка', 'nav.courses': 'Курсы', 'nav.teachers': 'Преподаватели', 'nav.community': 'Сообщество',
+'nav.profile': 'Профиль', 'nav.panel': 'Панель роли', 'nav.admin': 'Админка', 'nav.login': 'Войти',
+'nav.register': 'Регистрация', 'nav.logout': 'Выйти',
+'role.guest': 'Гость', 'role.student': 'Ученик', 'role.teacher': 'Преподаватель', 'role.provider': 'Организатор курсов',
+'role.moderator': 'Модератор', 'role.content': 'Контент-менеджер', 'role.admin': 'Администратор', 'role.superadmin': 'Супер-админ',
+'rights.guest': 'Лендинг; публичный каталог; регистрация',
+'rights.student': 'AI; тесты; профиль; streak; курсы; преподаватели; чат',
+'rights.teacher': 'Профиль; заявки; расписание и услуги; отзывы',
+'rights.provider': 'Карточки курсов; цены; заявки; аналитика',
+'rights.moderator': 'Жалобы; чат; очередь модерации',
+'rights.content': 'Предметы; темы; материалы; вопросы',
+'rights.admin': 'Пользователи; роли; marketplace; модерация; настройки',
+'rights.superadmin': 'Инфраструктурные и критические настройки',
+'theme.light': 'Luminous (Светлая)', 'theme.dark': 'Midnight (Тёмная)', 'theme.hack': 'Watch Dogs (DedSec)', 'theme.neon': 'Cyberpunk (Неон)', 'theme.vault': 'Pip-Boy (Vault)',
+'hero.title': 'Готовьтесь к ЕНТ по персональному плану и с AI',
+'hero.sub': 'Диагностика, тренировка по слабым темам, опытные репетиторы и измеримый прогресс — в одном месте.',
+'hero.cta1': 'Начать (Регистрация)', 'hero.cta2': 'Смотреть курсы', 'hero.dash': 'Перейти в кабинет',
+'hero.tag': 'Платформа подготовки к ЕНТ 2027',
+'ft.title': 'Возможности платформы',
+'f1.t': 'Диагностика знаний', 'f1.d': 'Находит слабые темы по каждому предмету',
+'f2.t': 'AI-тренировка', 'f2.d': 'Задания по слабым темам с объяснением ошибок',
+'f3.t': 'AI Tutor', 'f3.d': 'Подсказки и алгоритмы без раскрытия готового решения',
+'f4.t': 'Симулятор ЕНТ', 'f4.d': 'Мини-ЕНТ и полный экзаменационный режим с таймером',
+'f5.t': 'Курсы и преподаватели', 'f5.d': 'Каталог с фильтрами по городу, предмету, цене и формату',
+'f6.t': 'Серия и скидка', 'f6.d': '+0,25 п.п. за каждый учебный день, максимум 15%',
+'how.title': 'Как проходит подготовка?',
+'s1': 'Полная регистрация и выбор профильных предметов',
+'s2': 'Первичная диагностика уровня знаний',
+'s3': 'Ежедневная тренировка с AI и преподавателями',
+'s4': 'Высокий балл и поступление на грант',
+'au.email': 'Email или логин', 'au.password': 'Пароль', 'au.password2': 'Повторите пароль',
+'au.forgot': 'Забыли пароль?', 'au.demo': 'Демо-платформа: ученики регистрируются свободно, доступ ко всем функциям открыт.',
+'au.noAcc': 'Нет аккаунта?', 'au.hasAcc': 'Уже есть аккаунт?',
+'au.regTitle': 'Начать подготовку к ЕНТ',
+'au.regSub': 'Заполните все данные для составления личного плана подготовки:',
+'au.firstName': 'Имя', 'au.lastName': 'Фамилия', 'au.phone': 'Номер телефона',
+'au.city': 'Город / Регион', 'au.grade': 'Класс / Уровень обучения', 'au.profilePair': 'Профильные предметы',
+'au.targetScore': 'Целевой балл (макс. 140)',
+'au.agree': 'Согласен с условиями использования и политикой конфиденциальности',
+'au.regBtn': 'Зарегистрироваться и начать', 'au.loginBtn': 'Войти в систему',
+'au.demoCredsTitle': 'Служебный вход (Админ, Преподаватель и др.)',
+'au.demoCredsDesc': 'Предустановленные аккаунты для персонала (нажмите для быстрого заполнения):',
+'au.fillAll': 'Пожалуйста, заполните все обязательные поля!',
+'au.passMismatch': 'Пароли не совпадают!',
+'toast.regSuccess': 'Регистрация успешна! Добро пожаловать в личный кабинет!',
+'toast.loginSuccess': 'Вход выполнен: {role}',
+'toast.loginFail': 'Неверный логин или пароль!',
+'pair.math_phys': 'Математика — Физика', 'pair.chem_bio': 'Химия — Биология',
+'pair.math_info': 'Математика — Информатика', 'pair.geo_world': 'География — Всемирная история',
+'pair.lang_lit': 'Язык — Литература', 'pair.eng_hist': 'Иностранный язык — История',
+'pair.geo_math': 'География — Математика',
+'grade.11': '11 класс (ЕНТ 2027)', 'grade.10': '10 класс (ЕНТ 2028)', 'grade.college': 'Студент колледжа / Выпускник',
+'db.hello': 'Привет, {name}!', 'db.streak': 'Серия', 'db.days': 'дн.', 'db.best': 'Лучшая серия',
+'db.discount': 'Накопленная скидка', 'db.discountNote': '+0,25 п.п. за день, максимум 15%.',
+'db.goal': 'Норма на сегодня', 'db.questions': 'вопросов', 'db.progress': 'Прогресс по предметам',
+'db.weak': 'Слабые темы', 'db.recent': 'Последние попытки',
+'db.targetCard': 'Целевой балл',
+'th.date': 'Дата', 'th.mode': 'Режим', 'th.subject': 'Предмет', 'th.score': 'Результат', 'th.name': 'Имя', 'th.status': 'Статус',
+'th.type': 'Тип', 'th.target': 'Объект', 'th.actions': 'Действия', 'th.email': 'Email', 'th.role': 'Роль', 'th.actor': 'Автор', 'th.action': 'Действие', 'th.topic': 'Тема',
+'sub.title': 'Предметы и темы', 'sub.note': 'Каталог конфигурируемый; список ниже — тестовый вариант.',
+'sub.core': 'Обязательные предметы', 'sub.profile': 'Профильные предметы', 'sub.mastery': 'освоение',
+'mode.practice': 'Тренировка (5 вопросов)', 'mode.test': 'Тест (8 вопросов)', 'mode.mistakes': 'Работа над ошибками (5 вопросов)', 'mode.mini': 'Мини-ЕНТ (10 вопросов, 15 мин)', 'mode.full': 'Симулятор ЕНТ (15 вопросов, 25 мин)',
+'tests.title': 'Тесты', 'tests.sample': 'Пример задания', 'q.legend': 'Решите уравнение 2x + 6 = 14', 'q.check': 'Проверить ответ',
+'q.right': 'Верно! x = 4.', 'q.wrong': 'Неверно. Попробуйте ещё раз.', 'q.pick': 'Выберите ответ.',
+'tests.resultTitle': 'Пример результата', 'tests.resultText': 'Верно: 18 / 25. Слабая тема: Квадратные уравнения.',
+'ai.title': 'AI-подготовка', 'ai.gen': 'Генератор заданий', 'ai.level': 'Сложность', 'ai.type': 'Тип задания',
+'ai.l1': 'Лёгкая', 'ai.l2': 'Средняя', 'ai.l3': 'Сложная', 'ai.t1': 'Один ответ', 'ai.t2': 'Несколько ответов', 'ai.t3': 'Открытый ответ',
+'ai.generate': 'Создать задание', 'ai.stub': 'Сгенерированное практическое задание:',
+'ai.sampleTask': 'Задание: найдите корни уравнения x² − 5x + 6 = 0.',
+'ai.hint': 'Подсказка', 'ai.explain': 'Объяснение',
+'ai.hintText': 'Подсказка: попробуйте разложить на множители или вычислите дискриминант.',
+'ai.explainText': 'Объяснение: D = 25 − 24 = 1, корни x = 2 и x = 3.',
+'ai.tutor': 'AI Tutor', 'ai.tutorLabel': 'Ваш вопрос', 'ai.send': 'Отправить',
+'ai.tutorHello': 'Привет! С какой темой помочь?',
+'ai.tutorReply': 'Отличный вопрос! Вот подробный алгоритм и подсказка по решению.',
+'com.title': 'Сообщество', 'com.rooms': 'Комнаты', 'com.write': 'Сообщение', 'com.send': 'Отправить',
+'com.report': 'Пожаловаться', 'com.hidden': 'Скрыто модерацией', 'com.show': 'Показать', 'com.you': 'Вы',
+'room.general': 'Общая', 'room.math': 'Математика', 'room.history': 'История Казахстана', 'room.physics': 'Физика',
+'pr.title': 'Профиль', 'pr.first': 'Имя', 'pr.last': 'Фамилия', 'pr.city': 'Город', 'pr.grade': 'Класс', 'pr.target': 'Целевой балл',
+'pr.save': 'Сохранить', 'pr.settings': 'Язык и тема', 'pr.data': 'Данные', 'pr.export': 'Экспорт данных', 'pr.delete': 'Удалить аккаунт',
+'toast.stage2': 'Это действие заработает на следующем этапе.', 'toast.saved': 'Данные профиля сохранены!', 'toast.sent': 'Сообщение отправлено.',
+'toast.login': 'Вход выполнен успешно.',
+'fl.city': 'Город', 'fl.subject': 'Предмет', 'fl.format': 'Формат', 'fl.price': 'Макс. цена, ₸', 'fl.any': 'Любой',
+'fl.priceAny': 'Любая цена', 'fmt.online': 'Онлайн', 'fmt.offline': 'Офлайн', 'found': 'Найдено', 'c.title': 'Каталог курсов',
+'c.apply': 'Оставить заявку', 'c.verified': 'Проверено', 'perMonth': '₸ / мес.', 'perHour': '₸ / час', 'exp': 'лет опыта', 'rating': 'Рейтинг',
+'t.title': 'Частные преподаватели', 'empty': 'Ничего не найдено. Измените параметры фильтрации.',
+'pn.title': 'Панель роли', 'pn.rights': 'Права роли', 'pn.note': 'Рабочие экраны этой роли будут расширяться на следующих этапах.',
+'tb.requests': 'Заявки', 'tb.questions': 'Вопросы', 'st.new': 'Новая', 'st.review': 'На проверке', 'st.published': 'Опубликован', 'st.draft': 'Черновик', 'st.pending': 'На модерации',
+'ad.title': 'Админка', 'ad.queue': 'Очередь модерации', 'ad.users': 'Пользователи', 'ad.audit': 'Журнал аудита',
+'act.approve': 'Одобрить', 'act.reject': 'Отклонить',
+'ty.message': 'Сообщение чата', 'ty.course': 'Курс', 'ty.teacher': 'Преподаватель', 'ty.report': 'Жалоба',
+'au.act1': 'Курс одобрен', 'au.act2': 'Роль изменена', 'au.act3': 'Сообщение скрыто',
+'test.modeTitle': 'Режим тестирования', 'test.finish': 'Завершить тест', 'test.prev': '← Предыдущий', 'test.next': 'Следующий →',
+'test.time': 'Время', 'test.qNum': 'Вопрос', 'test.result': 'Результат теста', 'test.score': 'Набранный балл',
+'test.retake': 'Пройти снова', 'test.toDash': 'Вернуться в кабинет', 'test.review': 'Работа над ошибками и объяснения',
+'test.yourAns': 'Ваш ответ', 'test.rightAns': 'Правильный ответ', 'test.skipped': 'Пропущено',
+'mod.applyTitle': 'Оставить заявку', 'mod.applyName': 'Имя и фамилия ученика', 'mod.applyPhone': 'Контактный телефон',
+'mod.applyNote': 'Вопрос или удобное время', 'mod.applySend': 'Отправить заявку',
+'mod.applySuccess': 'Заявка принята! Скоро менеджер свяжется с вами.', 'mod.close': 'Закрыть',
+'mod.reportTitle': 'Пожаловаться на сообщение', 'mod.reportReason': 'Причина жалобы',
+'mod.reason1': 'Спам или реклама', 'mod.reason2': 'Оскорбления или грубость', 'mod.reason3': 'Не по теме предмета',
+'mod.reportSend': 'Отправить модераторам', 'mod.reportSuccess': 'Жалоба отправлена в очередь модерации.',
+'mod.forgotTitle': 'Восстановление пароля', 'mod.forgotDesc': 'Введите зарегистрированный email адрес:',
+'mod.getCode': 'Получить код подтверждения', 'mod.codeHint': 'Демо-код отправлен: {code}', 'mod.enterCode': 'Код подтверждения',
+'mod.newPass': 'Новый пароль', 'mod.savePass': 'Изменить пароль',
+'mod.passUpdated': 'Пароль успешно изменен! Можете войти.', 'mod.delTitle': 'Подтверждение удаления аккаунта',
+'mod.delDesc': 'Весь учебный прогресс, накопленная скидка и данные будут стёрты. Вы уверены?',
+'mod.delConfirm': 'Да, удалить аккаунт', 'mod.delCancel': 'Отмена', 'mod.delSuccess': 'Данные аккаунта успешно удалены.',
+'mod.exportSuccess': 'Данные выгружены в формате JSON!', 'ad.approved': 'Одобрено', 'ad.rejected': 'Отклонено',
+'c.promoteBtn': 'Разместить курс и рекламу', 'c.promoted': 'Топ-реклама',
+'c.bannerTitle': 'Партнерство для учебных центров и курсов',
+'c.bannerDesc': 'Зарегистрируйте свой курс на платформе и запустите рекламу для тысяч абитуриентов.',
+'mod.promoteTitle': 'Регистрация курса, верификация и реклама',
+'mod.centerName': 'Название центра / организации', 'mod.repName': 'ФИО представителя',
+'mod.repPhone': 'Контактный телефон', 'mod.repEmail': 'Корпоративный Email',
+'mod.courseTitle': 'Название курса', 'mod.coursePrice': 'Стоимость обучения (в месяц, ₸)',
+'mod.license': 'БИН / Номер лицензии', 'mod.adDuration': 'Срок рекламы на сайте',
+'mod.adCost': 'Стоимость рекламы', 'mod.payMethod': 'Способ оплаты',
+'mod.payKaspi': 'Kaspi Pay (QR оплата)', 'mod.payCard': 'Банковская карта (Visa/MasterCard)',
+'mod.payBtn': 'Оплатить и запустить рекламу',
+'mod.promoteSuccess': 'Курс успешно зарегистрирован и реклама запущена!',
+'test.goalAdded': 'К дневной норме добавлено +{count} вопросов!', 'test.correct': 'верных ответов',
+'sub.startTest': 'Начать тест по этому предмету', 'mod.applyPlaceholder': 'Вечерние занятия или онлайн формат...',
+'mod.badCode': 'Неверный код или пустой пароль!', 'contacts.phone': 'Тел', 'contacts.email': 'Email',
+'ai.solveCheck': 'Проверить ответ', 'ai.sampleGen': 'Сгенерированное практическое задание:',
+'dur.7': '7 дней (1 неделя) — 15 000 ₸', 'dur.14': '14 дней (2 недели) — 28 000 ₸',
+'dur.30': '30 дней (1 месяц — Топ предложение) — 50 000 ₸', 'dur.90': '90 дней (3 месяца — Генеральный партнер) — 120 000 ₸'
+},
+en: {
+'ui.skip': 'Skip to main content', 'ui.menu': 'Menu', 'ui.mainNav': 'Main navigation',
+'ui.lang': 'Language', 'ui.theme': 'Theme', 'ui.role': 'Role', 'ui.demoBar': 'Demo mode',
+'ui.footer': 'ENT.hub — comprehensive UNT preparation platform and course marketplace.',
+'ui.noAccess': 'No access', 'ui.noAccessText': 'This page is not accessible for your role. Please sign in with an authorized account.',
+'ui.start': 'Start', 'ui.soon': 'Topics will be added in the next stage.', 'ui.test': 'Test data',
+'nav.home': 'Home', 'nav.dashboard': 'Dashboard', 'nav.subjects': 'Subjects', 'nav.tests': 'Tests',
+'nav.ai': 'AI practice', 'nav.courses': 'Courses', 'nav.teachers': 'Teachers', 'nav.community': 'Community',
+'nav.profile': 'Profile', 'nav.panel': 'Role panel', 'nav.admin': 'Admin', 'nav.login': 'Log in',
+'nav.register': 'Sign up', 'nav.logout': 'Log out',
+'role.guest': 'Guest', 'role.student': 'Student', 'role.teacher': 'Teacher', 'role.provider': 'Course provider',
+'role.moderator': 'Moderator', 'role.content': 'Content manager', 'role.admin': 'Admin', 'role.superadmin': 'Super admin',
+'rights.guest': 'Landing; public catalog; sign-up',
+'rights.student': 'AI; tests; profile; streak; courses; teachers; chat',
+'rights.teacher': 'Profile; requests; schedule and services; reviews',
+'rights.provider': 'Course cards; prices; requests; analytics',
+'rights.moderator': 'Reports; chat; moderation queue',
+'rights.content': 'Subjects; topics; materials; questions',
+'rights.admin': 'Users; roles; marketplace; moderation; settings',
+'rights.superadmin': 'Infrastructure and critical settings',
+'theme.light': 'Luminous (Light)', 'theme.dark': 'Midnight (Dark)', 'theme.hack': 'Watch Dogs (DedSec)', 'theme.neon': 'Cyberpunk (Neon)', 'theme.vault': 'Pip-Boy (Vault)',
+'hero.title': 'Prepare for UNT with a personalized plan and AI',
+'hero.sub': 'Diagnostics, weak topics practice, expert tutors and measurable progress — all in one place.',
+'hero.cta1': 'Get started (Sign up)', 'hero.cta2': 'Browse courses', 'hero.dash': 'Go to dashboard',
+'hero.tag': 'UNT 2027 preparation hub',
+'ft.title': 'Platform features',
+'f1.t': 'Knowledge diagnostics', 'f1.d': 'Pinpoints weak topics across every subject',
+'f2.t': 'AI practice', 'f2.d': 'Targeted exercises on weak topics with explanations',
+'f3.t': 'AI Tutor', 'f3.d': 'Guiding hints and problem-solving strategies without spoilers',
+'f4.t': 'UNT simulator', 'f4.d': 'Mini-UNT and full exam mode with real-time countdown',
+'f5.t': 'Courses and teachers', 'f5.d': 'Marketplace with filters by city, subject, price and format',
+'f6.t': 'Streak and discount', 'f6.d': '+0.25 pp per study day, up to 15% discount',
+'how.title': 'How it works',
+'s1': 'Complete registration and choose your profile subject pair',
+'s2': 'Take the initial diagnostic assessment',
+'s3': 'Practice daily with AI and top-rated educators',
+'s4': 'Achieve your target score and secure your scholarship',
+'au.email': 'Email or username', 'au.password': 'Password', 'au.password2': 'Repeat password',
+'au.forgot': 'Forgot password?', 'au.demo': 'Demo platform: students register openly with full access to tools.',
+'au.noAcc': 'No account?', 'au.hasAcc': 'Already have an account?',
+'au.regTitle': 'Start UNT preparation',
+'au.regSub': 'Fill in your details to create your personal study curriculum:',
+'au.firstName': 'First name', 'au.lastName': 'Last name', 'au.phone': 'Phone number',
+'au.city': 'City / Region', 'au.grade': 'Grade / Study level', 'au.profilePair': 'Profile subjects pair',
+'au.targetScore': 'Target score (max 140)',
+'au.agree': 'I agree to the terms of service and privacy policy',
+'au.regBtn': 'Sign up and get started', 'au.loginBtn': 'Sign in',
+'au.demoCredsTitle': 'Staff & Admin Login (Preset credentials)',
+'au.demoCredsDesc': 'Built-in accounts for administrators and staff (click to autofill):',
+'au.fillAll': 'Please fill in all required fields!',
+'au.passMismatch': 'Passwords do not match!',
+'toast.regSuccess': 'Registration successful! Welcome to your dashboard!',
+'toast.loginSuccess': 'Signed in as: {role}',
+'toast.loginFail': 'Invalid login or password!',
+'pair.math_phys': 'Mathematics — Physics', 'pair.chem_bio': 'Chemistry — Biology',
+'pair.math_info': 'Mathematics — Computer Science', 'pair.geo_world': 'Geography — World History',
+'pair.lang_lit': 'Language — Literature', 'pair.eng_hist': 'Foreign Language — History',
+'pair.geo_math': 'Geography — Mathematics',
+'grade.11': '11th Grade (UNT 2027)', 'grade.10': '10th Grade (UNT 2028)', 'grade.college': 'College Student / Graduate',
+'db.hello': 'Hi, {name}!', 'db.streak': 'Streak', 'db.days': 'days', 'db.best': 'Best streak',
+'db.discount': 'Accumulated discount', 'db.discountNote': '+0.25 pp per day, up to 15%.',
+'db.goal': "Today's goal", 'db.questions': 'questions', 'db.progress': 'Progress by subject',
+'db.weak': 'Weak topics', 'db.recent': 'Recent attempts',
+'db.targetCard': 'Target score',
+'th.date': 'Date', 'th.mode': 'Mode', 'th.subject': 'Subject', 'th.score': 'Score', 'th.name': 'Name', 'th.status': 'Status',
+'th.type': 'Type', 'th.target': 'Target', 'th.actions': 'Actions', 'th.email': 'Email', 'th.role': 'Role', 'th.actor': 'Actor', 'th.action': 'Action', 'th.topic': 'Topic',
+'sub.title': 'Subjects and topics', 'sub.note': 'The catalog is configurable; the list below is a test version.',
+'sub.core': 'Core subjects', 'sub.profile': 'Profile subjects', 'sub.mastery': 'mastery',
+'mode.practice': 'Practice (5 questions)', 'mode.test': 'Test (8 questions)', 'mode.mistakes': 'Mistake review (5 questions)', 'mode.mini': 'Mini-UNT (10 questions, 15 min)', 'mode.full': 'UNT simulator (15 questions, 25 min)',
+'tests.title': 'Tests', 'tests.sample': 'Sample question', 'q.legend': 'Solve the equation 2x + 6 = 14', 'q.check': 'Check answer',
+'q.right': 'Correct! x = 4.', 'q.wrong': 'Incorrect. Try again.', 'q.pick': 'Choose an answer.',
+'tests.resultTitle': 'Sample result', 'tests.resultText': 'Correct: 18 / 25. Weak topic: Quadratic equations.',
+'ai.title': 'AI practice', 'ai.gen': 'Task generator', 'ai.level': 'Difficulty', 'ai.type': 'Task type',
+'ai.l1': 'Easy', 'ai.l2': 'Medium', 'ai.l3': 'Hard', 'ai.t1': 'Single answer', 'ai.t2': 'Multiple answers', 'ai.t3': 'Open answer',
+'ai.generate': 'Generate task', 'ai.stub': 'AI-generated practice task:',
+'ai.sampleTask': 'Task: find the roots of x² − 5x + 6 = 0.',
+'ai.hint': 'Hint', 'ai.explain': 'Explanation',
+'ai.hintText': 'Hint: try factoring, or compute the discriminant.',
+'ai.explainText': 'Explanation: D = 25 − 24 = 1, so x = 2 and x = 3.',
+'ai.tutor': 'AI Tutor', 'ai.tutorLabel': 'Your question', 'ai.send': 'Send',
+'ai.tutorHello': 'Hi! Which topic can I help with?',
+'ai.tutorReply': 'Great question! Here is the detailed explanation and strategy.',
+'com.title': 'Community', 'com.rooms': 'Rooms', 'com.write': 'Message', 'com.send': 'Send',
+'com.report': 'Report', 'com.hidden': 'Hidden by moderation', 'com.show': 'Show', 'com.you': 'You',
+'room.general': 'General', 'room.math': 'Mathematics', 'room.history': 'History of Kazakhstan', 'room.physics': 'Physics',
+'pr.title': 'Profile', 'pr.first': 'First name', 'pr.last': 'Last name', 'pr.city': 'City', 'pr.grade': 'Grade', 'pr.target': 'Target score',
+'pr.save': 'Save', 'pr.settings': 'Language and theme', 'pr.data': 'Data', 'pr.export': 'Export data', 'pr.delete': 'Delete account',
+'toast.stage2': 'This action will work in a later stage.', 'toast.saved': 'Profile data saved!', 'toast.sent': 'Message sent.',
+'toast.login': 'Signed in successfully.',
+'fl.city': 'City', 'fl.subject': 'Subject', 'fl.format': 'Format', 'fl.price': 'Max price, ₸', 'fl.any': 'Any',
+'fl.priceAny': 'Any price', 'fmt.online': 'Online', 'fmt.offline': 'Offline', 'found': 'Found', 'c.title': 'Courses catalog',
+'c.apply': 'Send request', 'c.verified': 'Verified', 'perMonth': '₸ / month', 'perHour': '₸ / hour', 'exp': 'years of experience', 'rating': 'Rating',
+'t.title': 'Private teachers', 'empty': 'Nothing found. Try tweaking your search filters.',
+'pn.title': 'Role panel', 'pn.rights': 'Role permissions', 'pn.note': 'Working screens for this role will grow in later stages.',
+'tb.requests': 'Requests', 'tb.questions': 'Questions', 'st.new': 'New', 'st.review': 'In review', 'st.published': 'Published', 'st.draft': 'Draft', 'st.pending': 'Pending moderation',
+'ad.title': 'Admin', 'ad.queue': 'Moderation queue', 'ad.users': 'Users', 'ad.audit': 'Audit log',
+'act.approve': 'Approve', 'act.reject': 'Reject',
+'ty.message': 'Chat message', 'ty.course': 'Course', 'ty.teacher': 'Teacher', 'ty.report': 'Report',
+'au.act1': 'Course approved', 'au.act2': 'Role changed', 'au.act3': 'Message hidden',
+'test.modeTitle': 'Test Mode', 'test.finish': 'Finish Test', 'test.prev': '← Previous', 'test.next': 'Next →',
+'test.time': 'Time', 'test.qNum': 'Question', 'test.result': 'Test Result', 'test.score': 'Earned Score',
+'test.retake': 'Retake Test', 'test.toDash': 'Back to Dashboard', 'test.review': 'Mistake Review & Explanations',
+'test.yourAns': 'Your answer', 'test.rightAns': 'Correct answer', 'test.skipped': 'Skipped',
+'mod.applyTitle': 'Apply for Course / Teacher', 'mod.applyName': 'Student full name', 'mod.applyPhone': 'Contact phone',
+'mod.applyNote': 'Note or preferred schedule', 'mod.applySend': 'Submit application',
+'mod.applySuccess': 'Application submitted! A manager will contact you soon.', 'mod.close': 'Close',
+'mod.reportTitle': 'Report message', 'mod.reportReason': 'Report reason',
+'mod.reason1': 'Spam or advertising', 'mod.reason2': 'Insults or harassment', 'mod.reason3': 'Off-topic message',
+'mod.reportSend': 'Submit to moderators', 'mod.reportSuccess': 'Report submitted to moderation queue.',
+'mod.forgotTitle': 'Password Recovery', 'mod.forgotDesc': 'Enter your registered email address:',
+'mod.getCode': 'Get verification code', 'mod.codeHint': 'Demo code sent: {code}', 'mod.enterCode': 'Verification code',
+'mod.newPass': 'New password', 'mod.savePass': 'Change password',
+'mod.passUpdated': 'Password updated successfully! You can sign in.', 'mod.delTitle': 'Confirm Account Deletion',
+'mod.delDesc': 'All study progress, accumulated discount and data will be erased. Are you sure?',
+'mod.delConfirm': 'Yes, delete account', 'mod.delCancel': 'Cancel', 'mod.delSuccess': 'Account data has been deleted.',
+'mod.exportSuccess': 'Data exported as JSON file!', 'ad.approved': 'Approved', 'ad.rejected': 'Rejected',
+'c.promoteBtn': 'List Course & Advertise', 'c.promoted': 'Promoted',
+'c.bannerTitle': 'Partnership for Educational Centers & Courses',
+'c.bannerDesc': 'Register your course on the platform and launch ads to thousands of applicants.',
+'mod.promoteTitle': 'Course Registration, Verification & Advertising',
+'mod.centerName': 'Center / Organization title', 'mod.repName': 'Representative full name',
+'mod.repPhone': 'Contact phone', 'mod.repEmail': 'Corporate email',
+'mod.courseTitle': 'Course title', 'mod.coursePrice': 'Tuition fee (per month, ₸)',
+'mod.license': 'BIN / License number', 'mod.adDuration': 'Ad placement duration',
+'mod.adCost': 'Advertising fee', 'mod.payMethod': 'Payment method',
+'mod.payKaspi': 'Kaspi Pay (QR Checkout)', 'mod.payCard': 'Bank card (Visa/MasterCard)',
+'mod.payBtn': 'Pay and launch advertisement',
+'mod.promoteSuccess': 'Course registered and promotion activated!',
+'test.goalAdded': '+{count} questions added to daily goal!', 'test.correct': 'correct answers',
+'sub.startTest': 'Start test on this subject', 'mod.applyPlaceholder': 'Evening classes or online format...',
+'mod.badCode': 'Invalid code or empty password!', 'contacts.phone': 'Tel', 'contacts.email': 'Email',
+'ai.solveCheck': 'Check Answer', 'ai.sampleGen': 'AI-generated practice task:',
+'dur.7': '7 days (1 week) — 15,000 ₸', 'dur.14': '14 days (2 weeks) — 28,000 ₸',
+'dur.30': '30 days (1 month — Top pick) — 50,000 ₸', 'dur.90': '90 days (3 months — Main Partner) — 120,000 ₸'
+}
+};
+// SECTION: test-data
+var SUBJECTS = [
+{ id: 'math_lit', type: 'core', n: { kk: 'Математикалық сауаттылық', ru: 'Математическая грамотность', en: 'Mathematical literacy' }, p: 68 },
+{ id: 'read_lit', type: 'core', n: { kk: 'Оқу сауаттылығы', ru: 'Грамотность чтения', en: 'Reading literacy' }, p: 76 },
+{ id: 'hist_kz', type: 'core', n: { kk: 'Қазақстан тарихы', ru: 'История Казахстана', en: 'History of Kazakhstan' }, p: 58 },
+{ id: 'math', type: 'profile', n: { kk: 'Математика', ru: 'Математика', en: 'Mathematics' }, p: 62 },
+{ id: 'phys', type: 'profile', n: { kk: 'Физика', ru: 'Физика', en: 'Physics' }, p: 48 },
+{ id: 'info', type: 'profile', n: { kk: 'Информатика', ru: 'Информатика', en: 'Computer science' }, p: 71 },
+{ id: 'bio', type: 'profile', n: { kk: 'Биология', ru: 'Биология', en: 'Biology' }, p: 44 },
+{ id: 'chem', type: 'profile', n: { kk: 'Химия', ru: 'Химия', en: 'Chemistry' }, p: 38 },
+{ id: 'geo', type: 'profile', n: { kk: 'География', ru: 'География', en: 'Geography' }, p: 55 },
+{ id: 'world', type: 'profile', n: { kk: 'Дүниежүзі тарихы', ru: 'Всемирная история', en: 'World history' }, p: 50 }
+];
+var TREE = {
+math: [
+{ n: { kk: 'Алгебра', ru: 'Алгебра', en: 'Algebra' }, topics: [
+{ n: { kk: 'Сызықтық теңдеулер', ru: 'Линейные уравнения', en: 'Linear equations' }, m: 82 },
+{ n: { kk: 'Квадрат теңдеулер', ru: 'Квадратные уравнения', en: 'Quadratic equations' }, m: 41 } ] },
+{ n: { kk: 'Геометрия', ru: 'Геометрия', en: 'Geometry' }, topics: [
+{ n: { kk: 'Үшбұрыштар мен қасиеттері', ru: 'Треугольники и их свойства', en: 'Triangles and properties' }, m: 63 },
+{ n: { kk: 'Шеңбер және дөңгелек', ru: 'Окружность и круг', en: 'Circle' }, m: 35 } ] }
+],
+hist_kz: [
+{ n: { kk: 'Ежелгі және ортағасырлық кезең', ru: 'Древность и Средневековье', en: 'Ancient and medieval period' }, topics: [
+{ n: { kk: 'Сақтар мен үйсіндер мәдениеті', ru: 'Культура саков и усуней', en: 'Saka and Usun culture' }, m: 72 },
+{ n: { kk: 'Қазақ хандығының құрылуы', ru: 'Создание Казахского ханства', en: 'Kazakh Khanate founding' }, m: 55 } ] },
+{ n: { kk: 'Жаңа және қазіргі заман', ru: 'Новое и новейшее время', en: 'Modern era' }, topics: [
+{ n: { kk: 'Тәуелсіз Қазақстан кезеңі', ru: 'Период независимого Казахстана', en: 'Independent Kazakhstan' }, m: 60 },
+{ n: { kk: 'ХІХ ғасырдағы реформалар', ru: 'Реформы XIX века', en: '19th-century reforms' }, m: 30 } ] }
+]
+};
+var CITIES = {
+almaty: { kk: 'Алматы', ru: 'Алматы', en: 'Almaty' },
+astana: { kk: 'Астана', ru: 'Астана', en: 'Astana' },
+shymkent: { kk: 'Шымкент', ru: 'Шымкент', en: 'Shymkent' },
+kyzylorda: { kk: 'Қызылорда', ru: 'Кызылорда', en: 'Kyzylorda' },
+aktobe: { kk: 'Ақтөбе', ru: 'Актобе', en: 'Aktobe' },
+karaganda: { kk: 'Қарағанды', ru: 'Караганда', en: 'Karaganda' }
+};
+var COURSES = [
+{ id: 1, title: { kk: 'Математика және Физика: Грант 2027', ru: 'Математика и Физика: Грант 2027', en: 'Math & Physics: Grant 2027' }, org: 'Daryn Academy', city: 'almaty', fmt: 'online', subj: ['math', 'phys'], price: 45000, rating: 4.9, ok: true, phone: '+7 (727) 355-42-10', email: 'info@daryn-academy.kz', promoted: true },
+{ id: 2, title: { kk: 'Тарих және Оқу сауаттылығы интенсив', ru: 'История и Грамотность чтения интенсив', en: 'History & Reading Literacy' }, org: 'Ziyatкер Орталығы', city: 'astana', fmt: 'offline', subj: ['hist_kz', 'read_lit'], price: 38000, rating: 4.7, ok: true, phone: '+7 (7172) 69-58-20', email: 'admissions@ziyatker.kz', promoted: false },
+{ id: 3, title: { kk: 'Биология мен Химия: Медицинаға жол', ru: 'Биология и Химия: Путь в медицину', en: 'Biology and Chemistry: Med Track' }, org: 'Bilim Lab', city: 'shymkent', fmt: 'online', subj: ['bio', 'chem'], price: 35000, rating: 4.8, ok: true, phone: '+7 (7252) 98-44-12', email: 'study@bilimlab.kz', promoted: true },
+{ id: 4, title: { kk: 'Математика мен Информатика IT-дайындық', ru: 'Математика и Информатика IT-курс', en: 'Math and Computer Science IT' }, org: 'Astana IT School', city: 'astana', fmt: 'online', subj: ['math', 'info'], price: 42000, rating: 4.9, ok: true, phone: '+7 (7172) 45-12-88', email: 'hello@astanait.kz', promoted: false },
+{ id: 5, title: { kk: 'Математикалық сауаттылық 15/15', ru: 'Математическая грамотность 15/15', en: 'Mathematical Literacy 15/15' }, org: 'EduStep Hub', city: 'kyzylorda', fmt: 'offline', subj: ['math_lit'], price: 28000, rating: 4.6, ok: true, phone: '+7 (7242) 70-15-30', email: 'support@edustep.kz', promoted: false },
+{ id: 6, title: { kk: 'География және Дүниежүзі тарихы', ru: 'География и Всемирная история', en: 'Geography & World History' }, org: 'SilkWay Academy', city: 'almaty', fmt: 'offline', subj: ['geo', 'world'], price: 41000, rating: 4.4, ok: true, phone: '+7 (727) 220-40-60', email: 'info@silkway.kz', promoted: false }
+];
+var TEACHERS = [
+{ id: 1, name: 'Айгерім Серікбай', city: 'almaty', fmt: 'online', subj: ['math', 'math_lit'], price: 6000, exp: 8, rating: 4.9, ok: true, phone: '+7 (777) 234-56-78', email: 'aigerim.math@ent.hub' },
+{ id: 2, name: 'Данияр Тоқтасын', city: 'astana', fmt: 'offline', subj: ['phys', 'math'], price: 7500, exp: 12, rating: 4.8, ok: true, phone: '+7 (701) 987-65-43', email: 'daniyar.phys@ent.hub' },
+{ id: 3, name: 'Мәдина Ерланқызы', city: 'shymkent', fmt: 'online', subj: ['bio', 'chem'], price: 5500, exp: 6, rating: 4.7, ok: true, phone: '+7 (707) 543-21-98', email: 'madina.bio@ent.hub' },
+{ id: 4, name: 'Ерлан Қасымов', city: 'kyzylorda', fmt: 'offline', subj: ['hist_kz', 'world'], price: 5000, exp: 9, rating: 4.8, ok: true, phone: '+7 (702) 112-33-44', email: 'erlan.hist@ent.hub' },
+{ id: 5, name: 'Әлия Нұрбек', city: 'almaty', fmt: 'online', subj: ['info', 'math'], price: 6500, exp: 5, rating: 4.6, ok: true, phone: '+7 (705) 887-76-65', email: 'aliya.info@ent.hub' }
+];
+var QUESTION_BANK = [
+{
+id: 1, subj: 'math',
+q: { kk: '2x² − 8x + 6 = 0 теңдеуінің түбірлерін табыңыз.', ru: 'Найдите корни уравнения 2x² − 8x + 6 = 0.', en: 'Find the roots of 2x² − 8x + 6 = 0.' },
+opts: ['x = 1, x = 3', 'x = −1, x = −3', 'x = 2, x = 4', 'x = 0, x = 6'],
+ans: 0,
+hint: { kk: 'Теңдеуді 2-ге бөліп көріңіз: x² − 4x + 3 = 0.', ru: 'Разделите обе части на 2: x² − 4x + 3 = 0.', en: 'Divide both sides by 2: x² − 4x + 3 = 0.' },
+exp: { kk: 'D = 16 − 12 = 4. x = (4 ± 2) / 2 ⇒ x₁ = 3, x₂ = 1.', ru: 'D = 16 − 12 = 4. x = (4 ± 2) / 2 ⇒ x₁ = 3, x₂ = 1.', en: 'D = 16 − 12 = 4. x = (4 ± 2) / 2 ⇒ x₁ = 3, x₂ = 1.' }
+},
+{
+id: 2, subj: 'math_lit',
+q: { kk: 'Тауар бағасы алдымен 20%-ға қымбаттап, кейін 20%-ға арзандады. Бастапқы баға қалай өзгерді?', ru: 'Цена товара сначала выросла на 20%, а затем снизилась на 20%. Как изменилась цена?', en: 'Price first rose 20%, then fell 20%. How did it change?' },
+opts: ['4%-ға арзандады', 'Өзгерген жоқ', '4%-ға қымбаттады', '2%-ға арзандады'],
+ans: 0,
+hint: { kk: 'Бастапқы бағаны 100 деп алып көріңіз: 100 * 1.2 * 0.8 = ?', ru: 'Примите цену за 100: 100 * 1.2 * 0.8 = ?', en: 'Assume initial price is 100: 100 * 1.2 * 0.8 = ?' },
+exp: { kk: '100 * 1.2 * 0.8 = 96. Бастапқы 100-ден 96 қалды, яғни 4%-ға кеміді.', ru: '100 * 1.2 * 0.8 = 96. Снизилась на 4%.', en: '100 * 1.2 * 0.8 = 96. It decreased by 4%.' }
+},
+{
+id: 3, subj: 'hist_kz',
+q: { kk: 'Қазақ хандығы қай жылы құрылды деп саналады?', ru: 'В каком году основано Казахское ханство?', en: 'In which year was the Kazakh Khanate founded?' },
+opts: ['1465 жыл', '1511 жыл', '1723 жыл', '1206 жыл'],
+ans: 0,
+hint: { kk: 'Керей мен Жәнібек сұлтандардың Моғолстанға көшуі.', ru: 'Откочёвка ханов Керея и Жанибека в Могулистан.', en: 'Migration of Kerei and Zhanibek to Moghulistan.' },
+exp: { kk: 'М. Х. Дулати дерегі бойынша Қазақ хандығы 1465–1466 жылдары құрылған.', ru: 'По данным М. Х. Дулати, ханство основано в 1465–1466 гг.', en: 'According to M. H. Dulati, it was established in 1465–1466.' }
+},
+{
+id: 4, subj: 'phys',
+q: { kk: 'Ньютонның екінші заңының формуласы қандай?', ru: 'Формула второго закона Ньютона?', en: "Formula for Newton's second law?" },
+opts: ['F = m * a', 'E = m * c²', 'p = m * v', 'F = G * m1*m2 / r²'],
+ans: 0,
+hint: { kk: 'Күш масса мен үдеудің көбейтіндісіне тең.', ru: 'Сила равна произведению массы на ускорение.', en: 'Force equals mass times acceleration.' },
+exp: { kk: 'Ньютонның 2-заңы бойынша F = m * a.', ru: 'По второму закону Ньютона F = m * a.', en: "Newton's second law is F = m * a." }
+},
+{
+id: 5, subj: 'read_lit',
+q: { kk: 'Мәтіндегі автордың негізгі ойын қай жерден анықтау ең дұрыс?', ru: 'Где чаще всего выражается главная мысль автора в тексте?', en: "Where is the author's main idea usually expressed?" },
+opts: ['Кілт сөздер мен қорытындыда', 'Тек бірінші сөйлемде', 'Суреттерде', 'Сөздер санында'],
+ans: 0,
+hint: { kk: 'Автордың негізгі тұжырымы мен қорытынды сөйлеміне қараңыз.', ru: 'Обратите внимание на выводы автора.', en: 'Look at the author conclusions and thesis.' },
+exp: { kk: 'Негізгі ой кілт сөздерде, тезистер мен қорытынды абзацта көрініс табады.', ru: 'Главная мысль формулируется в тезисах и заключении.', en: 'The main idea is expressed in key arguments and conclusion.' }
+},
+{
+id: 6, subj: 'info',
+q: { kk: 'Python-да len([5, 10, 15, 20]) функциясының мәні неге тең?', ru: 'Чему равен результат len([5, 10, 15, 20]) в Python?', en: 'Output of len([5, 10, 15, 20]) in Python?' },
+opts: ['4', '20', '5', '3'],
+ans: 0,
+hint: { kk: 'Тізімде неше элемент бар екенін санайды.', ru: 'Считает количество элементов в списке.', en: 'Counts the number of elements in the list.' },
+exp: { kk: 'Тізімде 4 сан бар, нәтижесі — 4.', ru: 'В списке 4 элемента, результат равен 4.', en: 'List contains 4 items, output is 4.' }
+},
+{
+id: 7, subj: 'bio',
+q: { kk: 'Өсімдік жасушасында фотосинтез жүретін органоид:', ru: 'Органоид растительной клетки, где идет фотосинтез:', en: 'Organelle where photosynthesis takes place:' },
+opts: ['Хлоропласт', 'Митохондрия', 'Рибосома', 'Ядро'],
+ans: 0,
+hint: { kk: 'Құрамында хлорофилл пигменті бар.', ru: 'Содержит пигмент хлорофилл.', en: 'Contains chlorophyll pigment.' },
+exp: { kk: 'Фотосинтез хлоропласттардың ішінде жүзеге асады.', ru: 'Фотосинтез происходит в хлоропластах.', en: 'Photosynthesis occurs inside chloroplasts.' }
+},
+{
+id: 8, subj: 'chem',
+q: { kk: 'Судың (H₂O) молярлық массасы нешеге тең? (H=1, O=16)', ru: 'Молярная масса воды (H₂O)? (H=1, O=16)', en: 'Molar mass of water (H₂O)? (H=1, O=16)' },
+opts: ['18 г/моль', '16 г/моль', '17 г/моль', '20 г/моль'],
+ans: 0,
+hint: { kk: '2 * 1 + 16 = ?', ru: '2 * 1 + 16 = ?', en: '2 * 1 + 16 = ?' },
+exp: { kk: 'M(H₂O) = 2 * 1 + 16 = 18 г/моль.', ru: 'M(H₂O) = 2 * 1 + 16 = 18 г/моль.', en: 'M(H₂O) = 2 * 1 + 16 = 18 g/mol.' }
+},
+{
+id: 9, subj: 'hist_kz',
+q: { kk: 'Шілікті алтын адамы қай облыстан табылды?', ru: 'В какой области найден Шиликтинский золотой человек?', en: 'In which region was the Shilikty Golden Man discovered?' },
+opts: ['Шығыс Қазақстан (Зайсан)', 'Алматы (Есік)', 'Атырау (Аралтөбе)', 'Қарағанды'],
+ans: 0,
+hint: { kk: 'Зайсан қазаншұңқырындағы сақ қорғаны.', ru: 'Саки в Зайсанской котловине.', en: 'Saka mound in Zaysan depression.' },
+exp: { kk: 'Шілікті обалары Шығыс Қазақстан облысының Зайсан ауданында орналасқан.', ru: 'Курганы Шиликти находятся в Зайсанском районе ВКО.', en: 'Shilikty mounds are in East Kazakhstan, Zaysan.' }
+},
+{
+id: 10, subj: 'math',
+q: { kk: 'log₂(32) өрнегінің мәнін табыңыз.', ru: 'Вычислите log₂(32).', en: 'Compute log₂(32).' },
+opts: ['5', '4', '6', '16'],
+ans: 0,
+hint: { kk: '2-нің нешінші дәрежесі 32 болады?', ru: 'В какую степень надо возвести 2, чтобы получить 32?', en: 'What power of 2 gives 32?' },
+exp: { kk: '2⁵ = 32 болғандықтан, log₂(32) = 5.', ru: 'Так как 2⁵ = 32, ответ 5.', en: 'Because 2⁵ = 32, answer is 5.' }
+},
+{
+id: 11, subj: 'math',
+q: { kk: 'sin²(α) + cos²(α) өрнегінің мәні неге тең?', ru: 'Чему равно значение sin²(α) + cos²(α)?', en: 'What is the value of sin²(α) + cos²(α)?' },
+opts: ['1', '0', '2', 'tg(α)'],
+ans: 0,
+hint: { kk: 'Негізгі тригонометриялық теңбе-теңдік.', ru: 'Основное тригонометрическое тождество.', en: 'Basic trigonometric identity.' },
+exp: { kk: 'Кез келген бұрыш үшін sin²(α) + cos²(α) = 1.', ru: 'Для любого угла sin²(α) + cos²(α) = 1.', en: 'For any angle sin²(α) + cos²(α) = 1.' }
+},
+{
+id: 12, subj: 'hist_kz',
+q: { kk: '1991 жылы 16 желтоқсанда қандай тарихи оқиға болды?', ru: 'Какое историческое событие произошло 16 декабря 1991 года?', en: 'What historic event occurred on December 16, 1991?' },
+opts: ['Қазақстанның Тәуелсіздігі жарияланды', 'Ұлттық валюта енгізілді', 'БҰҰ-ға мүшелікке өтті', 'Жаңа Конституция қабылданды'],
+ans: 0,
+hint: { kk: '«Қазақстан Республикасының мемлекеттік тәуелсіздігі туралы» Заң.', ru: 'Закон «О государственной независимости Республики Казахстан».', en: 'Constitutional Law on State Independence.' },
+exp: { kk: '1991 жылы 16 желтоқсанда Қазақстан Республикасының Мемлекеттік тәуелсіздігі туралы Конституциялық Заң қабылданды.', ru: '16 декабря 1991 г. принят Конституционный закон о независимости РК.', en: 'On Dec 16, 1991, Kazakhstan declared its independence.' }
+}
+];
+var CHAT_SEED = {
+general: [
+{ u: 'Нұрлан', t: '10:02', x: { kk: 'Бүгін кім диагностика тапсырды?', ru: 'Кто сегодня проходил диагностику?', en: 'Who took the diagnostics today?' } },
+{ u: 'Томирис', t: '10:05', x: { kk: 'Мен! Квадрат теңдеулерден қателестім.', ru: 'Я! Ошиблась в квадратных уравнениях.', en: 'Me! I made mistakes in quadratic equations.' } },
+{ u: 'Demo', t: '10:07', hidden: true, x: { kk: '(жасырылған спам-хабарлама)', ru: '(скрытое спам-сообщение)', en: '(hidden spam message)' } }
+],
+math: [{ u: 'Асхат', t: '09:40', x: { kk: 'Дискриминантты қалай тез есептеуге болады?', ru: 'Как быстро считать дискриминант?', en: 'How to compute the discriminant quickly?' } }],
+history: [{ u: 'Томирис', t: '08:15', x: { kk: 'Қазақ хандығы 1465 жылы құрылды деп жазамыз ба?', ru: 'В каком году принято датировать создание Казахского ханства?', en: 'Which year do we use for the founding of the Kazakh Khanate?' } }],
+physics: []
+};
+var RECENT = [
+{ d: '2026-10-21', m: 'mode.mini', s: 'math', sc: '20 / 25' },
+{ d: '2026-10-19', m: 'mode.practice', s: 'phys', sc: '12 / 15' },
+{ d: '2026-10-18', m: 'mode.test', s: 'hist_kz', sc: '17 / 20' }
+];
+var REQUESTS = [
+{ n: 'Нұрлан Б.', s: 'math', st: 'st.new' }, { n: 'Томирис А.', s: 'phys', st: 'st.review' }, { n: 'Асхат М.', s: 'math', st: 'st.new' }
+];
+var QUESTIONS = [
+{ id: 'Q-101', tp: 'math', st: 'st.published' }, { id: 'Q-102', tp: 'math', st: 'st.review' }, { id: 'Q-103', tp: 'hist_kz', st: 'st.draft' }
+];
+var USERS = [
+{ e: 'admin@ent.hub', r: 'admin' }, { e: 'teacher@ent.hub', r: 'teacher' },
+{ e: 'moderator@ent.hub', r: 'moderator' }, { e: 'student@ent.hub', r: 'student' }
+];
+var AUDIT_LOG = [
+['2026-10-21 14:14', 'admin', 'au.act1'],
+['2026-10-20 20:02', 'admin', 'au.act2'],
+['2026-10-19 18:40', 'moderator', 'au.act3']
+];
+// SECTION: state-storage
+var state = {
+lang: 'kk', theme: 'light', role: 'guest', route: 'home',
+filters: { courses: {}, teachers: {} },
+chat: JSON.parse(JSON.stringify(CHAT_SEED)),
+room: 'general', tutor: null, aiShown: false, aiTask: null, focusMain: false,
+user: JSON.parse(JSON.stringify(DEFAULT_USER)),
+recent: JSON.parse(JSON.stringify(RECENT)),
+requests: JSON.parse(JSON.stringify(REQUESTS)),
+audit: JSON.parse(JSON.stringify(AUDIT_LOG)),
+queue: [
+{ id: 1, type: 'ty.course', target: 'Математика: бастау (Demo Center A)', status: 'st.pending' },
+{ id: 2, type: 'ty.teacher', target: 'Айгерім Серікбай', status: 'st.pending' },
+{ id: 3, type: 'ty.message', target: 'Demo · 10:07', status: 'st.review' }
+],
+testSession: null
+};
+function loadSettings() {
+try {
+var r = JSON.parse(localStorage.getItem(STORE_KEY) || '{}');
+if (r && LANGS[r.lang]) state.lang = r.lang;
+if (r && THEMES.indexOf(r.theme) >= 0) state.theme = r.theme;
+else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) state.theme = 'dark';
+if (r && ROLES.indexOf(r.role) >= 0) state.role = r.role;
+var u = JSON.parse(localStorage.getItem(USER_KEY) || '{}');
+if (u && u.first) { for (var k in u) state.user[k] = u[k]; }
+} catch (e) { /* storage unavailable */ }
+}
+function saveSettings() {
+try { localStorage.setItem(STORE_KEY, JSON.stringify({ v: 2, lang: state.lang, theme: state.theme, role: state.role })); } catch (e) {}
+}
+function saveUserSettings() {
+try { localStorage.setItem(USER_KEY, JSON.stringify(state.user)); } catch (e) {}
+}
+// SECTION: helpers
+function t(key, vars) {
+var s = (T[state.lang] && T[state.lang][key]);
+if (s === undefined) s = T.kk[key];
+if (s === undefined) s = key;
+if (vars) { for (var k in vars) s = s.replace(new RegExp('\\{' + k + '\\}', 'g'), vars[k]); }
+return s;
+}
+function L(obj) { return obj[state.lang] || obj.kk || ''; }
+function esc(s) {
+return String(s || '').replace(/[&<>"']/g, function (c) {
+return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+});
+}
+function num(n) { return Number(n).toLocaleString(LOCALE[state.lang], { maximumFractionDigits: 2 }); }
+function subjName(id) {
+for (var i = 0; i < SUBJECTS.length; i++) {
+if (SUBJECTS[i].id === id) return L(SUBJECTS[i].n);
+}
+return id;
+}
+function can(route) { return PUBLIC.indexOf(route) >= 0 || ACCESS[state.role].indexOf(route) >= 0; }
+function meter(pct, label) {
+return '<div class="meter' + (pct < 45 ? ' low' : '') + '" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="' + pct + '" aria-label="' + esc(label) + ' ' + pct + '%"><span style="width:' + pct + '%"></span></div>';
+}
+function options(list, sel, anyLabel) {
+var h = anyLabel ? '<option value="">' + esc(anyLabel) + '</option>' : '';
+list.forEach(function (o) {
+h += '<option value="' + esc(o[0]) + '"' + (String(o[0]) === String(sel) ? ' selected' : '') + '>' + esc(o[1]) + '</option>';
+});
+return h;
+}
+var toastTimer = null;
+function toast(msg) {
+var el = document.getElementById('toast'); if (!el) return;
+el.textContent = msg; el.className = 'show';
+clearTimeout(toastTimer);
+toastTimer = setTimeout(function () { el.className = ''; }, 3600);
+}
+function go(route) { location.hash = '#/' + route; }
+function openModal(contentHtml) {
+var c = document.getElementById('modal-container');
+if (!c) return;
+c.innerHTML = '<div class="modal-overlay" data-action="close-modal"><div class="modal-box" onclick="event.stopPropagation()">' + contentHtml + '</div></div>';
+}
+function closeModal() {
+var c = document.getElementById('modal-container');
+if (c) c.innerHTML = '';
+}
+function badges(x) {
+var promo = x.promoted ? '<span class="badge promo">🔥 ' + t('c.promoted') + '</span>' : '';
+return promo + '<span class="badge ok">' + t('c.verified') + '</span>' +
+'<span class="badge">' + esc(L(CITIES[x.city])) + '</span>' +
+'<span class="badge">' + t('fmt.' + x.fmt) + '</span>' +
+x.subj.map(function (s) { return '<span class="badge">' + esc(subjName(s)) + '</span>'; }).join('');
+}
+// SECTION: live-wallpaper
+function initLiveWallpaper() {
+var canvas = document.getElementById('live-bg');
+if (!canvas) return;
+var ctx = canvas.getContext('2d');
+var w, h;
+function resize() {
+w = canvas.width = window.innerWidth;
+h = canvas.height = window.innerHeight;
+}
+window.addEventListener('resize', resize);
+resize();
+var particles = [];
+for (var i = 0; i < 45; i++) {
+particles.push({
+x: Math.random() * w, y: Math.random() * h,
+vx: (Math.random() - 0.5) * 0.9, vy: (Math.random() - 0.5) * 0.9,
+size: Math.random() * 2 + 1, alpha: Math.random() * 0.5 + 0.3
+});
+}
+var radarAngle = 0;
+var scanY = 0;
+function loop() {
+var th = state.theme || 'light';
+ctx.clearRect(0, 0, w, h);
+if (th === 'hack') {
+ctx.strokeStyle = 'rgba(0, 229, 255, 0.08)';
+ctx.lineWidth = 1;
+for (var p1 = 0; p1 < particles.length; p1++) {
+var pt = particles[p1];
+pt.x += pt.vx; pt.y += pt.vy;
+if (pt.x < 0) pt.x = w; if (pt.x > w) pt.x = 0;
+if (pt.y < 0) pt.y = h; if (pt.y > h) pt.y = 0;
+ctx.fillStyle = p1 % 4 === 0 ? 'rgba(252, 238, 10, 0.7)' : 'rgba(0, 229, 255, 0.7)';
+ctx.fillRect(pt.x, pt.y, 2, 2);
+for (var p2 = p1 + 1; p2 < particles.length; p2++) {
+var pt2 = particles[p2];
+var dist = Math.hypot(pt.x - pt2.x, pt.y - pt2.y);
+if (dist < 110) {
+ctx.beginPath(); ctx.moveTo(pt.x, pt.y); ctx.lineTo(pt2.x, pt2.y); ctx.stroke();
+}
+}
+}
+scanY = (scanY + 1.2) % h;
+ctx.fillStyle = 'rgba(0, 229, 255, 0.035)';
+ctx.fillRect(0, scanY, w, 2);
+} else if (th === 'neon') {
+for (var j = 0; j < particles.length; j++) {
+var p = particles[j];
+p.y -= 0.6;
+if (p.y < 0) { p.y = h; p.x = Math.random() * w; }
+ctx.fillStyle = j % 2 === 0 ? 'rgba(255, 0, 127, 0.6)' : 'rgba(252, 238, 10, 0.6)';
+ctx.beginPath(); ctx.arc(p.x, p.y, p.size * 1.4, 0, Math.PI * 2); ctx.fill();
+}
+ctx.strokeStyle = 'rgba(255, 0, 127, 0.07)';
+ctx.lineWidth = 1.5;
+var horizonY = h * 0.72;
+for (var gy = horizonY; gy < h; gy += 18) {
+ctx.beginPath(); ctx.moveTo(0, gy); ctx.lineTo(w, gy); ctx.stroke();
+}
+} else if (th === 'vault') {
+radarAngle += 0.02;
+var cx = w * 0.85, cy = h * 0.28, r = 160;
+ctx.strokeStyle = 'rgba(31, 252, 50, 0.12)';
+ctx.lineWidth = 1;
+ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI * 2); ctx.stroke();
+ctx.beginPath(); ctx.arc(cx, cy, r * 0.5, 0, Math.PI * 2); ctx.stroke();
+ctx.strokeStyle = 'rgba(31, 252, 50, 0.3)';
+ctx.beginPath(); ctx.moveTo(cx, cy);
+ctx.lineTo(cx + Math.cos(radarAngle) * r, cy + Math.sin(radarAngle) * r);
+ctx.stroke();
+} else if (th === 'dark') {
+for (var k = 0; k < particles.length; k++) {
+var sp = particles[k];
+sp.y += sp.vy * 0.5;
+if (sp.y < 0) sp.y = h; if (sp.y > h) sp.y = 0;
+ctx.fillStyle = 'rgba(56, 189, 248, ' + (sp.alpha * 0.7) + ')';
+ctx.beginPath(); ctx.arc(sp.x, sp.y, sp.size, 0, Math.PI * 2); ctx.fill();
+}
+} else {
+for (var l = 0; l < 16; l++) {
+var ob = particles[l];
+ob.x += ob.vx * 0.35; ob.y += ob.vy * 0.35;
+if (ob.x < 0) ob.x = w; if (ob.x > w) ob.x = 0;
+if (ob.y < 0) ob.y = h; if (ob.y > h) ob.y = 0;
+ctx.fillStyle = l % 2 === 0 ? 'rgba(37, 99, 235, 0.035)' : 'rgba(16, 185, 129, 0.035)';
+ctx.beginPath(); ctx.arc(ob.x, ob.y, 45 + ob.size * 10, 0, Math.PI * 2); ctx.fill();
+}
+}
+requestAnimationFrame(loop);
+}
+requestAnimationFrame(loop);
+}
+// SECTION: shuffle-engine
+function shuffleArray(arr) {
+var a = arr.slice(0);
+for (var i = a.length - 1; i > 0; i--) {
+var j = Math.floor(Math.random() * (i + 1));
+var temp = a[i]; a[i] = a[j]; a[j] = temp;
+}
+return a;
+}
+function prepareTestQuestions(mode, subjId) {
+var pool = QUESTION_BANK.slice(0);
+if (subjId) {
+var f = pool.filter(function (q) { return q.subj === subjId; });
+if (f.length) pool = f;
+}
+pool = shuffleArray(pool);
+var count = 5;
+if (mode === 'practice') count = 5;
+else if (mode === 'test') count = 8;
+else if (mode === 'mini') count = 10;
+else if (mode === 'full') count = 12;
+else if (mode === 'mistakes') count = 5;
+var selected = pool.slice(0, Math.min(count, pool.length));
+return selected.map(function (item) {
+var correctText = item.opts[item.ans];
+var shuffledOpts = shuffleArray(item.opts);
+var newAnsIdx = shuffledOpts.indexOf(correctText);
+return {
+id: item.id,
+subj: item.subj,
+q: item.q,
+opts: shuffledOpts,
+ans: newAnsIdx,
+hint: item.hint,
+exp: item.exp
+};
+});
+}
+// SECTION: test-runner
+var testInterval = null;
+function startTest(mode, subjId) {
+var qs = prepareTestQuestions(mode, subjId);
+var timeLimit = 5 * 60;
+if (mode === 'practice') timeLimit = 10 * 60;
+else if (mode === 'test') timeLimit = 15 * 60;
+else if (mode === 'mini') timeLimit = 15 * 60;
+else if (mode === 'full') timeLimit = 25 * 60;
+else if (mode === 'mistakes') timeLimit = 8 * 60;
+state.testSession = {
+mode: mode,
+questions: qs,
+currentIdx: 0,
+answers: {},
+timeLeft: timeLimit,
+finished: false,
+score: 0
+};
+clearInterval(testInterval);
+testInterval = setInterval(function () {
+if (!state.testSession || state.testSession.finished) {
+clearInterval(testInterval);
+return;
+}
+state.testSession.timeLeft--;
+var el = document.getElementById('test-timer');
+if (el) {
+var m = Math.floor(state.testSession.timeLeft / 60);
+var s = state.testSession.timeLeft % 60;
+el.textContent = (m < 10 ? '0' : '') + m + ':' + (s < 10 ? '0' : '') + s;
+}
+if (state.testSession.timeLeft <= 0) {
+finishTest();
+}
+}, 1000);
+go('test-runner');
+}
+function finishTest() {
+if (!state.testSession || state.testSession.finished) return;
+clearInterval(testInterval);
+state.testSession.finished = true;
+var correct = 0;
+var qs = state.testSession.questions;
+for (var i = 0; i < qs.length; i++) {
+if (state.testSession.answers[i] === qs[i].ans) correct++;
+}
+state.testSession.score = correct;
+state.user.todayDone = (state.user.todayDone || 0) + qs.length;
+state.user.streakDays = Math.max(state.user.streakDays || 1, 1);
+saveUserSettings();
+var d = new Date(), dt = d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2);
+state.recent.unshift({
+d: dt,
+m: 'mode.' + state.testSession.mode,
+s: qs[0] ? qs[0].subj : 'math',
+sc: correct + ' / ' + qs.length
+});
+renderPage();
+}
+function renderTestRunner() {
+var s = state.testSession;
+if (!s) {
+go('tests');
+return '<p>' + t('ui.test') + '</p>';
+}
+if (s.finished) {
+var pct = Math.round((s.score / s.questions.length) * 100);
+var reviewHtml = s.questions.map(function (q, i) {
+var userPick = s.answers[i];
+var isOk = userPick === q.ans;
+var pickText = userPick !== undefined ? q.opts[userPick] : t('test.skipped');
+var correctText = q.opts[q.ans];
+return '<div class="card" style="margin-bottom:12px;border-left:4px solid ' + (isOk ? 'var(--accent)' : 'var(--danger)') + ';">' +
+'<p><strong>#' + (i + 1) + ': ' + esc(L(q.q)) + '</strong></p>' +
+'<p style="font-size:0.92rem;">' + t('test.yourAns') + ': <strong style="color:' + (isOk ? 'var(--accent)' : 'var(--danger)') + ';">' + esc(pickText) + '</strong></p>' +
+(isOk ? '' : '<p style="font-size:0.92rem;">' + t('test.rightAns') + ': <strong style="color:var(--accent);">' + esc(correctText) + '</strong></p>') +
+'<p class="muted" style="font-size:0.88rem;margin-top:6px;">💡 ' + esc(L(q.exp)) + '</p>' +
+'</div>';
+}).join('');
+return '<div class="page-head"><h1>' + t('test.result') + ': ' + t('mode.' + s.mode) + '</h1></div>' +
+'<div class="grid" style="margin-bottom:20px;">' +
+'<article class="card"><h2>' + t('test.score') + '</h2><div class="stat">' + s.score + ' / ' + s.questions.length + '</div>' + meter(pct, t('test.score')) + '<p class="muted" style="margin-top:8px;">' + pct + '% ' + t('test.correct') + '</p></article>' +
+'<article class="card"><h2>' + t('db.progress') + '</h2><p>' + t('test.goalAdded', { count: s.questions.length }) + '</p><div class="row" style="margin-top:14px;"><button class="btn" type="button" data-action="retake-test">🔄 ' + t('test.retake') + '</button><a class="btn ghost" href="#/dashboard">📊 ' + t('test.toDash') + '</a></div></article>' +
+'</div>' +
+'<h2>' + t('test.review') + '</h2>' + reviewHtml;
+}
+var q = s.questions[s.currentIdx];
+var m = Math.floor(s.timeLeft / 60);
+var sec = s.timeLeft % 60;
+var timeStr = (m < 10 ? '0' : '') + m + ':' + (sec < 10 ? '0' : '') + sec;
+var pills = s.questions.map(function (item, i) {
+var cls = 'test-pill';
+if (i === s.currentIdx) cls += ' curr';
+else if (s.answers[i] !== undefined) cls += ' done';
+return '<button type="button" class="' + cls + '" data-action="goto-q" data-idx="' + i + '">' + (i + 1) + '</button>';
+}).join('');
+var optsHtml = q.opts.map(function (opt, idx) {
+var isChecked = s.answers[s.currentIdx] === idx;
+return '<label class="opt"><input type="radio" name="test-choice" value="' + idx + '"' + (isChecked ? ' checked' : '') + ' data-action="pick-choice" data-idx="' + idx + '"> ' + esc(opt) + '</label>';
+}).join('');
+return '<div class="row" style="justify-content:space-between;margin-bottom:12px;">' +
+'<div><span class="badge ok">' + t('mode.' + s.mode) + '</span><span class="badge">' + esc(subjName(q.subj)) + '</span></div>' +
+'<div><span class="badge" style="font-size:1.05rem;font-weight:800;padding:4px 12px;">⏱ <span id="test-timer">' + timeStr + '</span></span></div>' +
+'</div>' +
+'<div class="test-nav-pills">' + pills + '</div>' +
+'<article class="card" style="margin-bottom:18px;">' +
+'<h3>' + t('test.qNum') + ' ' + (s.currentIdx + 1) + ' / ' + s.questions.length + '</h3>' +
+'<p style="font-size:1.15rem;font-weight:600;margin:14px 0 18px;">' + esc(L(q.q)) + '</p>' +
+optsHtml +
+'<div class="row" style="justify-content:space-between;margin-top:20px;">' +
+'<button class="btn ghost sm" type="button" data-action="prev-q"' + (s.currentIdx === 0 ? ' disabled' : '') + '>' + t('test.prev') + '</button>' +
+'<button class="btn sm" type="button" data-action="next-q"' + (s.currentIdx === s.questions.length - 1 ? ' disabled' : '') + '>' + t('test.next') + '</button>' +
+'<button class="btn danger sm" type="button" data-action="finish-test">' + t('test.finish') + '</button>' +
+'</div>' +
+'</article>';
+}
+// SECTION: ai-task-generator
+function generateAiTask(subj, lvl, typ) {
+var filtered = QUESTION_BANK.filter(function (q) { return q.subj === subj; });
+var sample = filtered.length ? filtered[Math.floor(Math.random() * filtered.length)] : QUESTION_BANK[0];
+var shuffledOpts = shuffleArray(sample.opts);
+var correctText = sample.opts[sample.ans];
+var newAnsIdx = shuffledOpts.indexOf(correctText);
+state.aiTask = {
+subj: subj,
+lvl: lvl,
+q: L(sample.q),
+opts: shuffledOpts,
+ans: newAnsIdx,
+hint: L(sample.hint),
+exp: L(sample.exp),
+userPick: null
+};
+state.aiShown = true;
+}
+// SECTION: pages
+var PAGES = {};
+PAGES.home = function () {
+var feats = [1, 2, 3, 4, 5, 6].map(function (i) {
+return '<article class="card"><h3>' + t('f' + i + '.t') + '</h3><p class="muted">' + t('f' + i + '.d') + '</p></article>';
+}).join('');
+var steps = [1, 2, 3, 4].map(function (i) { return '<li>' + t('s' + i) + '</li>'; }).join('');
+var cta = state.role === 'guest'
+? '<a class="btn" href="#/register">🚀 ' + t('hero.cta1') + '</a><a class="btn ghost" href="#/courses">🔍 ' + t('hero.cta2') + '</a>'
+: '<a class="btn" href="#/' + (state.role === 'student' ? 'dashboard' : 'panel') + '">📊 ' + t('hero.dash') + '</a>';
+return '<section class="hero">' +
+'<div class="hero-tag">✨ ' + t('hero.tag') + '</div>' +
+'<h1>' + t('hero.title') + '</h1>' +
+'<p>' + t('hero.sub') + '</p>' +
+'<div class="row" style="margin-top:20px;">' + cta + '</div>' +
+'</section>' +
+'<section aria-labelledby="ft"><h2 id="ft">' + t('ft.title') + '</h2><div class="grid">' + feats + '</div></section>' +
+'<section aria-labelledby="how"><h2 id="how">' + t('how.title') + '</h2><ol style="font-size:1.05rem;line-height:1.8;">' + steps + '</ol></section>';
+};
+PAGES.login = function () {
+var chips = PRESET_ACCOUNTS.filter(function (a) { return a.login.indexOf('@') >= 0; }).map(function (a) {
+return '<button type="button" class="cred-chip" data-action="quick-login" data-em="' + esc(a.login) + '" data-pw="' + esc(a.pass) + '" data-role="' + esc(a.role) + '">' +
+'<strong>' + esc(a.name) + '</strong><small>' + esc(a.login) + ' / ' + esc(a.pass) + '</small></button>';
+}).join('');
+return '<div class="login-card">' +
+'<h1>' + t('au.loginBtn') + '</h1>' +
+'<div class="note">' + t('au.demo') + '</div>' +
+'<form class="card" data-form="login-form" novalidate>' +
+'<div class="field"><label for="em">' + t('au.email') + '</label><input id="em" type="text" autocomplete="username" placeholder="student@ent.hub" required></div>' +
+'<div class="field"><label for="pw">' + t('au.password') + '</label><input id="pw" type="password" autocomplete="current-password" placeholder="••••••••" required></div>' +
+'<div class="row" style="margin-top:18px;">' +
+'<button class="btn" type="submit">' + t('au.loginBtn') + '</button>' +
+'<button class="btn ghost" type="button" data-action="open-forgot">' + t('au.forgot') + '</button>' +
+'</div>' +
+'<p style="margin-top:16px;font-size:0.95rem;">' + t('au.noAcc') + ' <a href="#/register"><strong>' + t('nav.register') + '</strong></a></p>' +
+'</form>' +
+'<details class="demo-creds">' +
+'<summary>🔑 ' + t('au.demoCredsTitle') + '</summary>' +
+'<p class="muted" style="margin:8px 0 10px;font-size:0.88rem;">' + t('au.demoCredsDesc') + '</p>' +
+'<div class="creds-grid">' + chips + '</div>' +
+'</details>' +
+'</div>';
+};
+PAGES.register = function () {
+var cities = Object.keys(CITIES).map(function (k) { return [k, L(CITIES[k])]; });
+var pairs = [
+['math_phys', t('pair.math_phys')], ['chem_bio', t('pair.chem_bio')],
+['math_info', t('pair.math_info')], ['geo_world', t('pair.geo_world')],
+['lang_lit', t('pair.lang_lit')], ['eng_hist', t('pair.eng_hist')],
+['geo_math', t('pair.geo_math')]
+];
+var grades = [
+['11', t('grade.11')], ['10', t('grade.10')], ['college', t('grade.college')]
+];
+return '<div class="reg-card">' +
+'<h1>' + t('au.regTitle') + '</h1>' +
+'<p class="muted">' + t('au.regSub') + '</p>' +
+'<form class="card" data-form="reg-form" novalidate>' +
+'<div class="form-grid">' +
+'<div class="field"><label for="r-first">' + t('au.firstName') + ' *</label><input id="r-first" required placeholder="Айгерім"></div>' +
+'<div class="field"><label for="r-last">' + t('au.lastName') + ' *</label><input id="r-last" required placeholder="Серікбай"></div>' +
+'<div class="field"><label for="r-phone">' + t('au.phone') + ' *</label><input id="r-phone" type="tel" required placeholder="+7 (777) 123-45-67"></div>' +
+'<div class="field"><label for="r-city">' + t('au.city') + ' *</label><select id="r-city" required>' + options(cities, 'almaty') + '</select></div>' +
+'<div class="field"><label for="r-grade">' + t('au.grade') + ' *</label><select id="r-grade" required>' + options(grades, '11') + '</select></div>' +
+'<div class="field"><label for="r-pair">' + t('au.profilePair') + ' *</label><select id="r-pair" required>' + options(pairs, 'math_phys') + '</select></div>' +
+'<div class="field"><label for="r-target">' + t('au.targetScore') + '</label><input id="r-target" type="number" min="50" max="140" value="125"></div>' +
+'<div class="field"><label for="r-email">' + t('au.email') + ' *</label><input id="r-email" type="email" required placeholder="aigerim@example.com"></div>' +
+'<div class="field"><label for="r-pw">' + t('au.password') + ' *</label><input id="r-pw" type="password" required placeholder="••••••••"></div>' +
+'<div class="field"><label for="r-pw2">' + t('au.password2') + ' *</label><input id="r-pw2" type="password" required placeholder="••••••••"></div>' +
+'<div class="full"><label class="opt" style="margin-bottom:0;"><input type="checkbox" id="r-agree" checked required> ' + t('au.agree') + '</label></div>' +
+'</div>' +
+'<div class="row" style="margin-top:20px;">' +
+'<button class="btn" type="submit" style="min-width:200px;">🚀 ' + t('au.regBtn') + '</button>' +
+'</div>' +
+'<p style="margin-top:16px;font-size:0.95rem;">' + t('au.hasAcc') + ' <a href="#/login"><strong>' + t('nav.login') + '</strong></a></p>' +
+'</form></div>';
+};
+PAGES.dashboard = function () {
+var u = state.user;
+var disc = Math.min(STREAK_RULES.max, u.streakDays * STREAK_RULES.perDay);
+var goalPct = Math.min(100, Math.round((u.todayDone || 0) / STREAK_RULES.dailyGoal * 100));
+var dots = ''; for (var i = 0; i < 7; i++) dots += '<i class="' + (i < 5 ? 'on' : '') + '"></i>';
+var prog = SUBJECTS.slice(0, 6).map(function (s) {
+return '<div class="field"><div class="row" style="justify-content:space-between"><span>' + esc(L(s.n)) + '</span><span class="muted">' + s.p + '%</span></div>' + meter(s.p, L(s.n)) + '</div>';
+}).join('');
+var weak = [];
+Object.keys(TREE).forEach(function (sid) {
+TREE[sid].forEach(function (sec) {
+sec.topics.forEach(function (tp) {
+if (tp.m < 45) weak.push({ s: sid, tp: tp });
+});
+});
+});
+var weakH = weak.map(function (w) {
+return '<li>' + esc(L(w.tp.n)) + ' <span class="badge">' + esc(subjName(w.s)) + '</span> <span class="muted">' + w.tp.m + '%</span></li>';
+}).join('');
+var rec = state.recent.map(function (r) {
+return '<tr><td>' + esc(r.d) + '</td><td>' + t(r.m) + '</td><td>' + esc(subjName(r.s)) + '</td><td><strong>' + esc(r.sc) + '</strong></td></tr>';
+}).join('');
+var pairTitle = t('pair.' + (u.profilePair || 'math_phys'));
+var cityTitle = u.city && CITIES[u.city] ? L(CITIES[u.city]) : '';
+return '<div class="hero" style="padding-top:0;">' +
+'<h1>' + t('db.hello', { name: esc(u.first || 'Оқушы') }) + '</h1>' +
+'<p class="muted">🎯 ' + t('au.profilePair') + ': <strong>' + esc(pairTitle) + '</strong> · ' + esc(cityTitle) + ' · ' + t('grade.' + (u.grade || '11')) + '</p>' +
+'</div>' +
+'<section class="grid">' +
+'<article class="card"><h2>' + t('db.streak') + '</h2><div class="stat">' + u.streakDays + ' <small style="font-size:1.1rem;color:var(--text);">' + t('db.days') + '</small></div><p class="muted">' + t('db.best') + ': ' + u.bestDays + ' ' + t('db.days') + '</p><div class="dots" aria-hidden="true">' + dots + '</div></article>' +
+'<article class="card"><h2>' + t('db.targetCard') + '</h2><div class="stat">' + (u.targetScore || 125) + ' <small style="font-size:1.1rem;color:var(--text);">/ 140</small></div><p class="muted">' + t('db.discount') + ': ' + num(disc) + '% (' + t('db.discountNote') + ')</p></article>' +
+'<article class="card"><h2>' + t('db.goal') + '</h2><div class="stat">' + (u.todayDone || 0) + ' / ' + STREAK_RULES.dailyGoal + '</div><p class="muted">' + t('db.questions') + '</p>' + meter(goalPct, t('db.goal')) + '</article>' +
+'</section>' +
+'<section class="grid">' +
+'<article class="card"><h2>' + t('db.progress') + '</h2>' + prog + '</article>' +
+'<article class="card"><h2>' + t('db.weak') + '</h2><ul>' + weakH + '</ul><div style="margin-top:18px;"><a class="btn" href="#/ai">⚡ ' + t('nav.ai') + '</a></div></article>' +
+'</section>' +
+'<section><h2>' + t('db.recent') + '</h2><div class="tablewrap"><table><thead><tr><th scope="col">' + t('th.date') + '</th><th scope="col">' + t('th.mode') + '</th><th scope="col">' + t('th.subject') + '</th><th scope="col">' + t('th.score') + '</th></tr></thead><tbody>' + rec + '</tbody></table></div></section>';
+};
+PAGES.subjects = function () {
+function group(type) {
+return SUBJECTS.filter(function (s) { return s.type === type; }).map(function (s) {
+var inner;
+if (TREE[s.id]) {
+inner = TREE[s.id].map(function (sec) {
+return '<h3>' + esc(L(sec.n)) + '</h3><ul class="tree">' + sec.topics.map(function (tp) {
+return '<li><div class="row" style="justify-content:space-between"><span>' + esc(L(tp.n)) + '</span><span class="muted">' + tp.m + '% ' + t('sub.mastery') + '</span></div>' + meter(tp.m, L(tp.n)) + '</li>';
+}).join('') + '</ul>';
+}).join('');
+} else inner = '<p class="muted">' + t('ui.soon') + '</p>';
+return '<details><summary>' + esc(L(s.n)) + '</summary>' + inner + '<div style="margin-top:10px;"><button class="btn sm ghost" type="button" data-action="start-topic-test" data-subj="' + s.id + '">⚡ ' + t('sub.startTest') + '</button></div></details>';
+}).join('');
+}
+return '<h1>' + t('sub.title') + '</h1><div class="note">' + t('sub.note') + '</div>' +
+'<section><h2>' + t('sub.core') + '</h2>' + group('core') + '</section><section><h2>' + t('sub.profile') + '</h2>' + group('profile') + '</section>';
+};
+PAGES.tests = function () {
+var modes = ['practice', 'test', 'mistakes', 'mini', 'full'].map(function (m) {
+return '<article class="card"><h3>' + t('mode.' + m) + '</h3><button class="btn sm" type="button" data-action="start-test" data-mode="' + m + '">▶ ' + t('ui.start') + '</button></article>';
+}).join('');
+return '<h1>' + t('tests.title') + '</h1><section class="grid">' + modes + '</section>' +
+'<section class="grid"><article class="card"><h2>' + t('tests.sample') + '</h2>' +
+'<form data-form="quiz"><fieldset><legend>' + t('q.legend') + '</legend>' +
+[2, 3, 4, 5].map(function (v) { return '<label class="opt"><input type="radio" name="q1" value="' + v + '"> ' + v + '</label>'; }).join('') +
+'</fieldset><button class="btn" type="submit">' + t('q.check') + '</button><p class="result" id="qres" role="status"></p></form></article>' +
+'<article class="card"><h2>' + t('tests.resultTitle') + '</h2><div class="stat">18 / 25</div><p class="muted">' + t('tests.resultText') + '</p>' + meter(72, t('tests.resultTitle')) + '</article></section>';
+};
+PAGES['test-runner'] = function () {
+return renderTestRunner();
+};
+function tutorInit() {
+if (!state.tutor) state.tutor = [{ me: false, key: 'ai.tutorHello' }];
+}
+PAGES.ai = function () {
+tutorInit();
+var subj = options(SUBJECTS.map(function (s) { return [s.id, L(s.n)]; }), 'math');
+var chat = state.tutor.map(function (m) {
+return '<li class="msg' + (m.me ? ' me' : '') + '">' + (m.me ? '<small>' + t('com.you') + '</small><br>' + esc(m.text) : '<small>AI Tutor</small><br>' + (m.key ? t(m.key) : esc(m.text))) + '</li>';
+}).join('');
+var shown = '';
+if (state.aiShown && state.aiTask) {
+var atk = state.aiTask;
+var opts = atk.opts.map(function (o, idx) {
+return '<label class="opt"><input type="radio" name="ai-ans" value="' + idx + '"> ' + esc(o) + '</label>';
+}).join('');
+shown = '<div class="card" style="margin-top:14px;" id="aires">' +
+'<div class="note">' + t('ai.sampleGen') + '</div>' +
+'<p style="font-weight:700;font-size:1.05rem;">' + esc(atk.q) + '</p>' +
+'<form data-form="ai-check-form">' + opts +
+'<div class="row" style="margin-top:12px;">' +
+'<button class="btn sm" type="submit">' + t('ai.solveCheck') + '</button>' +
+'<button class="btn ghost sm" type="button" data-action="ai-hint">💡 ' + t('ai.hint') + '</button>' +
+'<button class="btn ghost sm" type="button" data-action="ai-exp">📖 ' + t('ai.explain') + '</button>' +
+'</div></form>' +
+'<p class="result" id="aitxt" role="status"></p>' +
+'</div>';
+}
+return '<h1>' + t('ai.title') + '</h1><section class="grid">' +
+'<article class="card"><h2>' + t('ai.gen') + '</h2><form data-form="ai-gen">' +
+'<div class="field"><label for="ais">' + t('fl.subject') + '</label><select id="ais">' + subj + '</select></div>' +
+'<div class="field"><label for="ail">' + t('ai.level') + '</label><select id="ail">' + options([['1', t('ai.l1')], ['2', t('ai.l2')], ['3', t('ai.l3')]], '2') + '</select></div>' +
+'<div class="field"><label for="ait">' + t('ai.type') + '</label><select id="ait">' + options([['1', t('ai.t1')], ['2', t('ai.t2')], ['3', t('ai.t3')]], '1') + '</select></div>' +
+'<button class="btn" type="submit">✨ ' + t('ai.generate') + '</button></form>' + shown + '</article>' +
+'<article class="card"><h2>' + t('ai.tutor') + '</h2><ul class="chat" aria-live="polite">' + chat + '</ul>' +
+'<form data-form="tutor"><div class="field"><label for="tq">' + t('ai.tutorLabel') + '</label><input id="tq" maxlength="300" placeholder="Мысалы: Квадрат теңдеу қалай шешіледі?" autocomplete="off" required></div>' +
+'<button class="btn" type="submit">💬 ' + t('ai.send') + '</button></form></article></section>';
+};
+function filterBar(page) {
+var f = state.filters[page] || {};
+var cities = Object.keys(CITIES).map(function (k) { return [k, L(CITIES[k])]; });
+var subs = SUBJECTS.map(function (s) { return [s.id, L(s.n)]; });
+var priceVal = f.price !== undefined ? f.price : '';
+return '<div class="filters" role="search">' +
+'<div class="filter-field"><label for="f-city">' + t('fl.city') + '</label><select id="f-city" data-filter="city">' + options(cities, f.city, t('fl.any')) + '</select></div>' +
+'<div class="filter-field"><label for="f-subj">' + t('fl.subject') + '</label><select id="f-subj" data-filter="subj">' + options(subs, f.subj, t('fl.any')) + '</select></div>' +
+'<div class="filter-field"><label for="f-fmt">' + t('fl.format') + '</label><select id="f-fmt" data-filter="fmt">' + options([['online', t('fmt.online')], ['offline', t('fmt.offline')]], f.fmt, t('fl.any')) + '</select></div>' +
+'<div class="filter-field"><label for="f-price">' + t('fl.price') + '</label>' +
+'<div class="price-input-wrap">' +
+'<input id="f-price" type="number" min="0" step="1000" inputmode="numeric" placeholder="60000" data-filter="price" value="' + esc(priceVal) + '">' +
+'<span class="currency">₸</span>' +
+'</div>' +
+'<div class="quick-prices">' +
+'<button type="button" class="btn-chip" data-action="set-price" data-price="">' + t('fl.priceAny') + '</button>' +
+'<button type="button" class="btn-chip" data-action="set-price" data-price="35000">≤ 35 000</button>' +
+'<button type="button" class="btn-chip" data-action="set-price" data-price="45000">≤ 45 000</button>' +
+'<button type="button" class="btn-chip" data-action="set-price" data-price="60000">≤ 60 000</button>' +
+'</div>' +
+'</div></div>';
+}
+function applyFilters(list, f) {
+return list.filter(function (x) {
+if (!x.ok) return false;
+if (f.city && x.city !== f.city) return false;
+if (f.subj && x.subj.indexOf(f.subj) < 0) return false;
+if (f.fmt && x.fmt !== f.fmt) return false;
+if (f.price !== undefined && f.price !== '' && x.price > Number(f.price)) return false;
+return true;
+});
+}
+function renderCourseCard(c) {
+var contacts = '<div class="contacts-bar">' +
+'<a href="tel:' + esc(c.phone) + '">📞 ' + t('contacts.phone') + ': ' + esc(c.phone) + '</a>' +
+'<a href="mailto:' + esc(c.email) + '">✉️ ' + t('contacts.email') + ': ' + esc(c.email) + '</a>' +
+'</div>';
+return '<article class="card"><h3>' + esc(L(c.title)) + '</h3><p class="muted">' + esc(c.org) + '</p><div>' + badges(c) + '</div>' +
+contacts +
+'<p style="margin:12px 0;"><strong>' + num(c.price) + ' ' + t('perMonth') + '</strong> · ⭐ ' + t('rating') + ' ' + num(c.rating) + '</p>' +
+'<button class="btn sm" type="button" data-action="apply-course" data-id="' + c.id + '" data-title="' + esc(L(c.title)) + '" data-phone="' + esc(c.phone) + '" data-email="' + esc(c.email) + '">📝 ' + t('c.apply') + '</button></article>';
+}
+function renderTeacherCard(c) {
+var contacts = '<div class="contacts-bar">' +
+'<a href="tel:' + esc(c.phone) + '">📞 ' + t('contacts.phone') + ': ' + esc(c.phone) + '</a>' +
+'<a href="mailto:' + esc(c.email) + '">✉️ ' + t('contacts.email') + ': ' + esc(c.email) + '</a>' +
+'</div>';
+return '<article class="card"><h3>' + esc(c.name) + '</h3><div>' + badges(c) + '</div>' +
+contacts +
+'<p style="margin:12px 0;"><strong>' + num(c.price) + ' ' + t('perHour') + '</strong> · 🎓 ' + c.exp + ' ' + t('exp') + ' · ⭐ ' + t('rating') + ' ' + num(c.rating) + '</p>' +
+'<button class="btn sm" type="button" data-action="apply-teacher" data-id="' + c.id + '" data-name="' + esc(c.name) + '" data-phone="' + esc(c.phone) + '" data-email="' + esc(c.email) + '">📝 ' + t('c.apply') + '</button></article>';
+}
+PAGES.courses = function () {
+var list = applyFilters(COURSES, state.filters.courses);
+var promoBanner = '<div class="course-promo-banner">' +
+'<div><h3 style="margin:0 0 4px;">📢 ' + t('c.bannerTitle') + '</h3><p class="muted" style="margin:0;">' + t('c.bannerDesc') + '</p></div>' +
+'<button class="btn sm" type="button" data-action="open-promote-modal">🚀 ' + t('c.promoteBtn') + '</button>' +
+'</div>';
+return '<h1>' + t('c.title') + '</h1><p class="muted">' + t('ui.test') + '</p>' +
+promoBanner +
+filterBar('courses') +
+'<p id="catalog-count" role="status" style="font-weight:700;">' + t('found') + ': ' + list.length + '</p>' +
+'<div id="catalog-results">' + (list.length ? '<div class="grid">' + list.map(renderCourseCard).join('') + '</div>' : '<p class="muted">' + t('empty') + '</p>') + '</div>';
+};
+PAGES.teachers = function () {
+var list = applyFilters(TEACHERS, state.filters.teachers);
+return '<h1>' + t('t.title') + '</h1><p class="muted">' + t('ui.test') + '</p>' +
+filterBar('teachers') +
+'<p id="catalog-count" role="status" style="font-weight:700;">' + t('found') + ': ' + list.length + '</p>' +
+'<div id="catalog-results">' + (list.length ? '<div class="grid">' + list.map(renderTeacherCard).join('') + '</div>' : '<p class="muted">' + t('empty') + '</p>') + '</div>';
+};
+function updateCatalogList() {
+if (state.route !== 'courses' && state.route !== 'teachers') return;
+var isCourses = state.route === 'courses';
+var list = isCourses
+? applyFilters(COURSES, state.filters.courses)
+: applyFilters(TEACHERS, state.filters.teachers);
+var countEl = document.getElementById('catalog-count');
+if (countEl) countEl.textContent = t('found') + ': ' + list.length;
+var resultsEl = document.getElementById('catalog-results');
+if (resultsEl) {
+resultsEl.innerHTML = list.length
+? '<div class="grid">' + list.map(isCourses ? renderCourseCard : renderTeacherCard).join('') + '</div>'
+: '<p class="muted">' + t('empty') + '</p>';
+}
+}
+PAGES.community = function () {
+var rooms = ['general', 'math', 'history', 'physics'].map(function (r) {
+return '<button class="btn sm ' + (r === state.room ? '' : 'ghost') + '" type="button" data-action="room" data-room="' + r + '" aria-pressed="' + (r === state.room) + '">' + t('room.' + r) + '</button>';
+}).join('');
+var msgs = state.chat[state.room].map(function (m, i) {
+var body = m.x && typeof m.x === 'object' ? esc(L(m.x)) : esc(m.x);
+if (m.hidden) {
+return '<li class="msg blurred"><small>' + esc(m.u) + ' · ' + esc(m.t) + ' · ' + t('com.hidden') + '</small><br><span class="txt" aria-hidden="true">' + body + '</span> ' +
+'<button class="btn ghost sm" type="button" data-action="reveal" data-i="' + i + '">' + t('com.show') + '</button></li>';
+}
+return '<li class="msg' + (m.me ? ' me' : '') + '"><small>' + esc(m.u) + ' · ' + esc(m.t) + '</small><br>' + body + ' ' +
+(m.me ? '' : '<button class="btn ghost sm" type="button" data-action="report-msg" data-i="' + i + '">🚩 ' + t('com.report') + '</button>') + '</li>';
+}).join('');
+return '<h1>' + t('com.title') + '</h1><div class="card"><h2>' + t('com.rooms') + '</h2><div class="rooms">' + rooms + '</div>' +
+'<ul class="chat" aria-live="polite">' + msgs + '</ul>' +
+'<form data-form="chat"><div class="field"><label for="cm">' + t('com.write') + '</label><input id="cm" maxlength="500" autocomplete="off" required></div>' +
+'<button class="btn" type="submit">' + t('com.send') + '</button></form></div>';
+};
+var SWATCH = {
+light: ['#f8fafc', '#2563eb', '#059669'],
+dark: ['#090d16', '#38bdf8', '#10b981'],
+hack: ['#07090e', '#00e5ff', '#fcee0a'],
+neon: ['#090214', '#fcee0a', '#ff007f'],
+vault: ['#020c04', '#1ffc32', '#ffb000']
+};
+PAGES.profile = function () {
+var u = state.user;
+var cities = Object.keys(CITIES).map(function (k) { return [k, L(CITIES[k])]; });
+var themes = THEMES.map(function (th) {
+return '<button class="btn ghost" type="button" data-action="theme" data-v="' + th + '" aria-pressed="' + (state.theme === th) + '">' + t('theme.' + th) +
+'<span class="sw" aria-hidden="true">' + SWATCH[th].map(function (c) { return '<i style="background:' + c + '"></i>'; }).join('') + '</span></button>';
+}).join('');
+var langs = Object.keys(LANGS).map(function (l) {
+return '<button class="btn ghost" type="button" data-action="lang" data-v="' + l + '" aria-pressed="' + (state.lang === l) + '">' + LANGS[l] + '</button>';
+}).join('');
+return '<h1>' + t('pr.title') + '</h1><section class="grid">' +
+'<article class="card"><form data-form="profile">' +
+'<div class="field"><label for="p1">' + t('pr.first') + '</label><input id="p1" value="' + esc(u.first) + '" autocomplete="given-name"></div>' +
+'<div class="field"><label for="p2">' + t('pr.last') + '</label><input id="p2" value="' + esc(u.last) + '" autocomplete="family-name"></div>' +
+'<div class="field"><label for="p3">' + t('pr.city') + '</label><select id="p3">' + options(cities, u.city || 'almaty') + '</select></div>' +
+'<div class="field"><label for="p4">' + t('pr.grade') + '</label><select id="p4">' + options([['10', '10'], ['11', '11'], ['college', 'Колледж']], u.grade || '11') + '</select></div>' +
+'<div class="field"><label for="p5">' + t('pr.target') + '</label><input id="p5" type="number" min="50" max="140" inputmode="numeric" value="' + esc(u.targetScore || 125) + '"></div>' +
+'<button class="btn" type="submit">' + t('pr.save') + '</button></form></article>' +
+'<article class="card"><h2>' + t('pr.settings') + '</h2><div class="row" role="group" aria-label="' + t('ui.lang') + '">' + langs + '</div>' +
+'<h3 style="margin-top:18px">' + t('ui.theme') + '</h3><div class="themes" role="group" aria-label="' + t('ui.theme') + '">' + themes + '</div></article>' +
+'<article class="card"><h2>' + t('pr.data') + '</h2><div class="row"><button class="btn ghost" type="button" data-action="export-data">📥 ' + t('pr.export') + '</button>' +
+'<button class="btn danger" type="button" data-action="delete-account">🗑️ ' + t('pr.delete') + '</button></div></article></section>';
+};
+function table(caption, heads, rows) {
+return '<div class="tablewrap"><table><caption>' + caption + '</caption><thead><tr>' + heads.map(function (h) { return '<th scope="col">' + h + '</th>'; }).join('') +
+'</tr></thead><tbody>' + rows.map(function (r) { return '<tr>' + r.map(function (c) { return '<td>' + c + '</td>'; }).join('') + '</tr>'; }).join('') + '</tbody></table></div>';
+}
+PAGES.panel = function () {
+var rights = t('rights.' + state.role).split('; ').map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('');
+var extra = '';
+if (state.role === 'teacher' || state.role === 'provider') {
+extra = table(t('tb.requests'), [t('th.name'), t('th.subject'), t('th.status')],
+state.requests.map(function (r) { return [esc(r.n), esc(subjName(r.s)), '<span class="badge ok">' + t(r.st) + '</span>']; }));
+} else if (state.role === 'content') {
+extra = table(t('tb.questions'), ['ID', t('th.topic'), t('th.status')],
+QUESTIONS.map(function (q) { return [q.id, esc(subjName(q.tp)), '<span class="badge">' + t(q.st) + '</span>']; }));
+} else {
+extra = '<p><a class="btn" href="#/admin">' + t('nav.admin') + '</a></p>';
+}
+return '<h1>' + t('pn.title') + ': ' + t('role.' + state.role) + '</h1><div class="card"><h2>' + t('pn.rights') + '</h2><ul>' + rights + '</ul></div>' +
+'<section style="margin-top:20px">' + extra + '</section><p class="muted">' + t('pn.note') + '</p>';
+};
+PAGES.admin = function () {
+var queueRows = state.queue.map(function (q, idx) {
+var btns = '<button class="btn sm" type="button" data-action="approve-queue" data-idx="' + idx + '">' + t('act.approve') + '</button> ' +
+'<button class="btn ghost sm" type="button" data-action="reject-queue" data-idx="' + idx + '">' + t('act.reject') + '</button>';
+return [t(q.type), esc(q.target), '<span class="badge">' + t(q.status) + '</span>', btns];
+});
+var users = USERS.map(function (u) { return [esc(u.e), '<span class="badge ok">' + t('role.' + u.r) + '</span>']; });
+var audit = state.audit.map(function (a) { return [esc(a[0]), esc(a[1]), t(a[2])]; });
+return '<h1>' + t('ad.title') + '</h1><p class="muted">' + t('ui.test') + '</p>' +
+table(t('ad.queue'), [t('th.type'), t('th.target'), t('th.status'), t('th.actions')], queueRows) +
+table(t('ad.users'), [t('th.email'), t('th.role')], users) +
+table(t('ad.audit'), [t('th.date'), t('th.actor'), t('th.action')], audit);
+};
+// SECTION: shell-render
+function navRoutes() {
+var base = state.role === 'guest' ? ['home'] : ['home'];
+return base.concat(ACCESS[state.role]);
+}
+function renderShell() {
+var items = navRoutes().map(function (r) {
+return '<li><a href="#/' + (r === 'home' ? '' : r) + '"' + (state.route === r ? ' aria-current="page"' : '') + '>' + t('nav.' + r) + '</a></li>';
+}).join('');
+if (state.role === 'guest') {
+items += '<li><a href="#/login"' + (state.route === 'login' ? ' aria-current="page"' : '') + '>' + t('nav.login') + '</a></li>' +
+'<li><a href="#/register"' + (state.route === 'register' ? ' aria-current="page"' : '') + '>' + t('nav.register') + '</a></li>';
+} else {
+items += '<li><button class="link" type="button" data-action="logout">' + t('nav.logout') + '</button></li>';
+}
+var langOpts = Object.keys(LANGS).map(function (l) { return [l, LANGS[l]]; });
+var themeOpts = THEMES.map(function (x) { return [x, t('theme.' + x)]; });
+var userBadge = '';
+if (state.role !== 'guest') {
+var displayName = state.role === 'student' ? (state.user.first || 'Оқушы') : t('role.' + state.role);
+userBadge = '<span class="user-badge" title="' + esc(t('role.' + state.role)) + '">👤 ' + esc(displayName) + ' <span class="role-tag">' + t('role.' + state.role) + '</span></span>';
+}
+document.getElementById('app').innerHTML =
+'<a class="skip" href="#main" data-action="skip">' + t('ui.skip') + '</a>' +
+'<header class="top"><div class="wrap bar">' +
+'<a class="logo" href="#/">ENT<span>.hub</span> <span class="logo-tag">2027</span></a>' +
+'<button class="burger" type="button" data-action="menu" aria-expanded="false" aria-controls="nav">☰ ' + t('ui.menu') + '</button>' +
+'<nav id="nav" aria-label="' + t('ui.mainNav') + '"><ul>' + items + '</ul></nav>' +
+'<div class="tools">' +
+userBadge +
+'<label class="sr" for="sel-lang">' + t('ui.lang') + '</label><select id="sel-lang" data-sel="lang">' + options(langOpts, state.lang) + '</select>' +
+'<label class="sr" for="sel-theme">' + t('ui.theme') + '</label><select id="sel-theme" data-sel="theme">' + options(themeOpts, state.theme) + '</select>' +
+'</div></div></header>' +
+'<main id="main" tabindex="-1"></main>' +
+'<footer><div class="wrap">' + t('ui.footer') + '</div></footer><div id="toast" role="status" aria-live="polite"></div>';
+}
+function renderPage() {
+var main = document.getElementById('main'); if (!main) return;
+var inner = can(state.route) ? PAGES[state.route]()
+: '<h1>' + t('ui.noAccess') + '</h1><div class="note">' + t('ui.noAccessText') + '</div><a class="btn" href="#/">' + t('nav.home') + '</a>';
+main.innerHTML = '<div class="wrap">' + inner + '</div>';
+if (state.focusMain) {
+main.focus({ preventScroll: false });
+window.scrollTo(0, 0);
+state.focusMain = false;
+}
+}
+function applyDocMeta() {
+document.documentElement.lang = state.lang;
+document.documentElement.setAttribute('data-theme', state.theme);
+document.title = (state.route === 'home' ? 'ENT.hub' : t('nav.' + state.route) + ' · ENT.hub');
+}
+function parseRoute() {
+var r = (location.hash || '').replace(/^#\/?/, '').split('?')[0];
+if (!r) return 'home';
+return PAGES[r] ? r : 'home';
+}
+function render() {
+state.route = parseRoute();
+applyDocMeta();
+renderShell();
+renderPage();
+}
+// SECTION: events
+document.addEventListener('click', function (e) {
+var b = e.target.closest('[data-action]'); if (!b) return;
+var a = b.getAttribute('data-action');
+if (a === 'menu') {
+var nav = document.getElementById('nav'), open = nav.classList.toggle('open');
+b.setAttribute('aria-expanded', open ? 'true' : 'false');
+} else if (a === 'skip') {
+e.preventDefault(); document.getElementById('main').focus();
+} else if (a === 'close-modal') {
+closeModal();
+} else if (a === 'logout') {
+state.role = 'guest';
+saveSettings();
+toast(t('nav.logout'));
+if (location.hash === '' || location.hash === '#/') render(); else go('');
+} else if (a === 'room') {
+state.room = b.getAttribute('data-room');
+renderPage();
+} else if (a === 'reveal') {
+var i = Number(b.getAttribute('data-i'));
+state.chat[state.room][i].hidden = false;
+renderPage();
+} else if (a === 'theme') {
+state.theme = b.getAttribute('data-v');
+saveSettings();
+render();
+} else if (a === 'lang') {
+state.lang = b.getAttribute('data-v');
+saveSettings();
+render();
+} else if (a === 'quick-login') {
+var em = b.getAttribute('data-em'), pw = b.getAttribute('data-pw'), ro = b.getAttribute('data-role');
+var emInput = document.getElementById('em'), pwInput = document.getElementById('pw');
+if (emInput) emInput.value = em;
+if (pwInput) pwInput.value = pw;
+state.role = ro;
+saveSettings();
+toast(t('toast.loginSuccess', { role: t('role.' + ro) }));
+if (ro === 'student') go('dashboard');
+else if (ro === 'admin' || ro === 'superadmin' || ro === 'moderator') go('admin');
+else go('panel');
+} else if (a === 'set-price') {
+var pr = b.getAttribute('data-price');
+var inp = document.getElementById('f-price');
+if (inp) inp.value = pr;
+state.filters[state.route].price = pr;
+updateCatalogList();
+} else if (a === 'start-test') {
+var m = b.getAttribute('data-mode');
+startTest(m);
+} else if (a === 'start-topic-test') {
+var sId = b.getAttribute('data-subj');
+startTest('practice', sId);
+} else if (a === 'goto-q') {
+state.testSession.currentIdx = Number(b.getAttribute('data-idx'));
+renderPage();
+} else if (a === 'pick-choice') {
+state.testSession.answers[state.testSession.currentIdx] = Number(b.getAttribute('data-idx'));
+renderPage();
+} else if (a === 'prev-q') {
+if (state.testSession.currentIdx > 0) {
+state.testSession.currentIdx--;
+renderPage();
+}
+} else if (a === 'next-q') {
+if (state.testSession.currentIdx < state.testSession.questions.length - 1) {
+state.testSession.currentIdx++;
+renderPage();
+}
+} else if (a === 'finish-test') {
+finishTest();
+} else if (a === 'retake-test') {
+startTest(state.testSession.mode);
+} else if (a === 'ai-hint') {
+var p = document.getElementById('aitxt');
+if (p && state.aiTask) p.innerHTML = '<span style="color:var(--focus);">💡 ' + esc(state.aiTask.hint) + '</span>';
+} else if (a === 'ai-exp') {
+var p = document.getElementById('aitxt');
+if (p && state.aiTask) p.innerHTML = '<span style="color:var(--accent);">📖 ' + esc(state.aiTask.exp) + '</span>';
+} else if (a === 'apply-course' || a === 'apply-teacher') {
+var isC = a === 'apply-course';
+var title = isC ? b.getAttribute('data-title') : b.getAttribute('data-name');
+var ph = b.getAttribute('data-phone') || '';
+var eml = b.getAttribute('data-email') || '';
+var contactsInfo = '<div class="contacts-bar">' +
+'<a href="tel:' + esc(ph) + '">📞 ' + esc(ph) + '</a> · <a href="mailto:' + esc(eml) + '">✉️ ' + esc(eml) + '</a>' +
+'</div>';
+var html = '<h2>' + t('mod.applyTitle') + '</h2>' +
+'<p><strong>' + esc(title) + '</strong></p>' +
+contactsInfo +
+'<form data-form="apply-form" novalidate>' +
+'<input type="hidden" id="app-title" value="' + esc(title) + '">' +
+'<div class="field"><label for="ap-name">' + t('mod.applyName') + '</label><input id="ap-name" value="' + esc(state.user.first + ' ' + state.user.last) + '" required></div>' +
+'<div class="field"><label for="ap-phone">' + t('mod.applyPhone') + '</label><input id="ap-phone" value="' + esc(state.user.phone || '+7 (777) 123-45-67') + '" required></div>' +
+'<div class="field"><label for="ap-note">' + t('mod.applyNote') + '</label><textarea id="ap-note" rows="2" placeholder="' + esc(t('mod.applyPlaceholder')) + '"></textarea></div>' +
+'<div class="row" style="margin-top:14px;"><button class="btn" type="submit">' + t('mod.applySend') + '</button><button class="btn ghost" type="button" data-action="close-modal">' + t('mod.close') + '</button></div>' +
+'</form>';
+openModal(html);
+} else if (a === 'open-promote-modal') {
+var cities = Object.keys(CITIES).map(function (k) { return [k, L(CITIES[k])]; });
+var durations = [
+['7', t('dur.7')],
+['14', t('dur.14')],
+['30', t('dur.30')],
+['90', t('dur.90')]
+];
+var html = '<h2>' + t('mod.promoteTitle') + '</h2>' +
+'<form data-form="promote-form" novalidate>' +
+'<div class="form-grid">' +
+'<div class="field"><label for="pm-org">' + t('mod.centerName') + ' *</label><input id="pm-org" placeholder="Daryn Online" required></div>' +
+'<div class="field"><label for="pm-rep">' + t('mod.repName') + ' *</label><input id="pm-rep" placeholder="Асқар Бақытжан" required></div>' +
+'<div class="field"><label for="pm-phone">' + t('mod.repPhone') + ' *</label><input id="pm-phone" type="tel" placeholder="+7 (727) 355-42-10" required></div>' +
+'<div class="field"><label for="pm-email">' + t('mod.repEmail') + ' *</label><input id="pm-email" type="email" placeholder="contact@center.kz" required></div>' +
+'<div class="field"><label for="pm-title">' + t('mod.courseTitle') + ' *</label><input id="pm-title" placeholder="ҰБТ 140 Интенсив" required></div>' +
+'<div class="field"><label for="pm-price">' + t('mod.coursePrice') + ' *</label><input id="pm-price" type="number" placeholder="45000" required></div>' +
+'<div class="field"><label for="pm-city">' + t('fl.city') + '</label><select id="pm-city">' + options(cities, 'almaty') + '</select></div>' +
+'<div class="field"><label for="pm-bin">' + t('mod.license') + ' *</label><input id="pm-bin" placeholder="190440012345" required></div>' +
+'<div class="field full"><label for="pm-dur">' + t('mod.adDuration') + '</label><select id="pm-dur" data-action="calc-ad-price">' + options(durations, '30') + '</select></div>' +
+'</div>' +
+'<div class="note" style="margin-top:10px;"><p style="margin:0;font-size:1.05rem;">' + t('mod.adCost') + ': <strong id="ad-price-display" style="color:var(--primary);font-size:1.25rem;">50 000 ₸</strong></p></div>' +
+'<div class="field" style="margin-top:12px;"><label>' + t('mod.payMethod') + '</label>' +
+'<div class="row">' +
+'<label class="opt" style="flex:1;"><input type="radio" name="pay-method" value="kaspi" checked> 📱 ' + t('mod.payKaspi') + '</label>' +
+'<label class="opt" style="flex:1;"><input type="radio" name="pay-method" value="card"> 💳 ' + t('mod.payCard') + '</label>' +
+'</div>' +
+'</div>' +
+'<div class="row" style="margin-top:16px;">' +
+'<button class="btn" type="submit">💳 ' + t('mod.payBtn') + '</button>' +
+'<button class="btn ghost" type="button" data-action="close-modal">' + t('mod.close') + '</button>' +
+'</div>' +
+'</form>';
+openModal(html);
+} else if (a === 'report-msg') {
+var idx = Number(b.getAttribute('data-i'));
+var html = '<h2>' + t('mod.reportTitle') + '</h2>' +
+'<form data-form="report-form">' +
+'<input type="hidden" id="rep-idx" value="' + idx + '">' +
+'<p class="field"><label for="rep-reason">' + t('mod.reportReason') + '</label><select id="rep-reason">' +
+'<option value="mod.reason1">' + t('mod.reason1') + '</option>' +
+'<option value="mod.reason2">' + t('mod.reason2') + '</option>' +
+'<option value="mod.reason3">' + t('mod.reason3') + '</option>' +
+'</select></p>' +
+'<div class="row" style="margin-top:14px;"><button class="btn danger" type="submit">' + t('mod.reportSend') + '</button><button class="btn ghost" type="button" data-action="close-modal">' + t('mod.close') + '</button></div>' +
+'</form>';
+openModal(html);
+} else if (a === 'approve-queue') {
+var qIdx = Number(b.getAttribute('data-idx'));
+var item = state.queue.splice(qIdx, 1)[0];
+if (item) {
+state.audit.unshift([new Date().toLocaleTimeString(), 'admin', 'au.act1']);
+toast(t('ad.approved') + ': ' + item.target);
+renderPage();
+}
+} else if (a === 'reject-queue') {
+var qIdx = Number(b.getAttribute('data-idx'));
+var item = state.queue.splice(qIdx, 1)[0];
+if (item) {
+state.audit.unshift([new Date().toLocaleTimeString(), 'admin', 'au.act3']);
+toast(t('ad.rejected') + ': ' + item.target);
+renderPage();
+}
+} else if (a === 'open-forgot') {
+var html = '<h2>' + t('mod.forgotTitle') + '</h2>' +
+'<p class="muted">' + t('mod.forgotDesc') + '</p>' +
+'<form data-form="forgot-form">' +
+'<div class="field"><label for="fg-email">Email</label><input id="fg-email" type="email" value="student@ent.hub" required></div>' +
+'<div class="field" id="fg-code-box" style="display:none;"><label for="fg-code">' + t('mod.enterCode') + '</label><input id="fg-code" placeholder="482910" required><div class="note" style="margin-top:8px;" id="fg-hint"></div></div>' +
+'<div class="field" id="fg-pw-box" style="display:none;"><label for="fg-pw">' + t('mod.newPass') + '</label><input id="fg-pw" type="password" placeholder="••••••••" required></div>' +
+'<div class="row" style="margin-top:16px;">' +
+'<button class="btn" type="submit" id="fg-btn">' + t('mod.getCode') + '</button>' +
+'<button class="btn ghost" type="button" data-action="close-modal">' + t('mod.close') + '</button>' +
+'</div></form>';
+openModal(html);
+} else if (a === 'export-data') {
+var exportPayload = {
+user: state.user,
+recentAttempts: state.recent,
+settings: { lang: state.lang, theme: state.theme, role: state.role },
+exportedAt: new Date().toISOString()
+};
+var blob = new Blob([JSON.stringify(exportPayload, null, 2)], { type: 'application/json' });
+var url = URL.createObjectURL(blob);
+var aLink = document.createElement('a');
+aLink.href = url;
+aLink.download = 'enthub_profile_' + (state.user.first || 'student') + '.json';
+document.body.appendChild(aLink);
+aLink.click();
+document.body.removeChild(aLink);
+URL.revokeObjectURL(url);
+toast(t('mod.exportSuccess'));
+} else if (a === 'delete-account') {
+var html = '<h2>' + t('mod.delTitle') + '</h2>' +
+'<p class="note" style="border-color:var(--danger);">' + t('mod.delDesc') + '</p>' +
+'<div class="row" style="margin-top:16px;">' +
+'<button class="btn danger" type="button" data-action="confirm-delete">' + t('mod.delConfirm') + '</button>' +
+'<button class="btn ghost" type="button" data-action="close-modal">' + t('mod.delCancel') + '</button>' +
+'</div>';
+openModal(html);
+} else if (a === 'confirm-delete') {
+localStorage.removeItem(USER_KEY);
+localStorage.removeItem(STORE_KEY);
+state.user = JSON.parse(JSON.stringify(DEFAULT_USER));
+state.role = 'guest';
+closeModal();
+toast(t('mod.delSuccess'));
+go('');
+}
+});
+document.addEventListener('change', function (e) {
+var s = e.target.getAttribute && e.target.getAttribute('data-sel');
+if (s) {
+var v = e.target.value;
+if (s === 'lang' && LANGS[v]) state.lang = v;
+else if (s === 'theme' && THEMES.indexOf(v) >= 0) state.theme = v;
+saveSettings();
+render();
+var again = document.getElementById('sel-' + s);
+if (again) again.focus();
+return;
+}
+var act = e.target.getAttribute && e.target.getAttribute('data-action');
+if (act === 'calc-ad-price') {
+var val = e.target.value;
+var priceEl = document.getElementById('ad-price-display');
+if (priceEl) {
+var map = { '7': '15 000 ₸', '14': '28 000 ₸', '30': '50 000 ₸', '90': '120 000 ₸' };
+priceEl.textContent = map[val] || '50 000 ₸';
+}
+return;
+}
+var f = e.target.getAttribute && e.target.getAttribute('data-filter');
+if (f && (state.route === 'courses' || state.route === 'teachers')) {
+state.filters[state.route][f] = e.target.value;
+updateCatalogList();
+}
+});
+document.addEventListener('input', function (e) {
+var f = e.target.getAttribute && e.target.getAttribute('data-filter');
+if (!f) return;
+if (state.route === 'courses' || state.route === 'teachers') {
+state.filters[state.route][f] = e.target.value;
+updateCatalogList();
+}
+});
+document.addEventListener('submit', function (e) {
+var form = e.target.closest('[data-form]'); if (!form) return;
+e.preventDefault();
+var k = form.getAttribute('data-form');
+if (k === 'login-form') {
+var emVal = (document.getElementById('em').value || '').trim();
+var pwVal = (document.getElementById('pw').value || '').trim();
+var found = null;
+for (var i = 0; i < PRESET_ACCOUNTS.length; i++) {
+var acc = PRESET_ACCOUNTS[i];
+if (acc.login.toLowerCase() === emVal.toLowerCase() && acc.pass === pwVal) {
+found = acc; break;
+}
+}
+if (found) {
+state.role = found.role;
+saveSettings();
+toast(t('toast.loginSuccess', { role: t('role.' + found.role) }));
+if (found.role === 'student') go('dashboard');
+else if (found.role === 'admin' || found.role === 'superadmin' || found.role === 'moderator') go('admin');
+else go('panel');
+return;
+}
+if (state.user && state.user.email && state.user.email.toLowerCase() === emVal.toLowerCase()) {
+state.role = 'student';
+saveSettings();
+toast(t('toast.loginSuccess', { role: t('role.student') }));
+go('dashboard');
+return;
+}
+if (emVal && pwVal) {
+state.role = 'student';
+saveSettings();
+toast(t('toast.loginSuccess', { role: t('role.student') }));
+go('dashboard');
+} else {
+toast(t('toast.loginFail'));
+}
+} else if (k === 'reg-form') {
+var fst = document.getElementById('r-first').value.trim();
+var lst = document.getElementById('r-last').value.trim();
+var ph = document.getElementById('r-phone').value.trim();
+var cty = document.getElementById('r-city').value;
+var grd = document.getElementById('r-grade').value;
+var pr = document.getElementById('r-pair').value;
+var tg = document.getElementById('r-target').value;
+var eml = document.getElementById('r-email').value.trim();
+var p1 = document.getElementById('r-pw').value;
+var p2 = document.getElementById('r-pw2').value;
+if (!fst || !lst || !ph || !eml || !p1) {
+toast(t('au.fillAll'));
+return;
+}
+if (p1 !== p2) {
+toast(t('au.passMismatch'));
+return;
+}
+state.user = {
+first: fst, last: lst, phone: ph, city: cty, grade: grd,
+profilePair: pr, targetScore: Number(tg) || 125, email: eml,
+streakDays: 1, bestDays: 1, todayDone: 0
+};
+state.role = 'student';
+saveSettings();
+saveUserSettings();
+toast(t('toast.regSuccess'));
+go('dashboard');
+} else if (k === 'quiz') {
+var r = form.querySelector('input[name="q1"]:checked'), out = document.getElementById('qres');
+out.textContent = r ? (r.value === '4' ? t('q.right') : t('q.wrong')) : t('q.pick');
+} else if (k === 'ai-gen') {
+var sb = document.getElementById('ais').value;
+var lv = document.getElementById('ail').value;
+var tp = document.getElementById('ait').value;
+generateAiTask(sb, lv, tp);
+renderPage();
+} else if (k === 'ai-check-form') {
+var sel = form.querySelector('input[name="ai-ans"]:checked');
+var out = document.getElementById('aitxt');
+if (!sel) {
+if (out) out.textContent = t('q.pick');
+return;
+}
+var val = Number(sel.value);
+if (val === state.aiTask.ans) {
+out.innerHTML = '<span style="color:var(--accent);">✅ ' + t('q.right') + ' (+10 XP)</span>';
+state.user.todayDone = (state.user.todayDone || 0) + 1;
+saveUserSettings();
+} else {
+out.innerHTML = '<span style="color:var(--danger);">❌ ' + t('q.wrong') + '</span>';
+}
+} else if (k === 'tutor') {
+var inp = document.getElementById('tq'); if (!inp.value.trim()) return;
+var userText = inp.value.trim();
+tutorInit();
+state.tutor.push({ me: true, text: userText });
+var low = userText.toLowerCase();
+var botReply = t('ai.tutorReply');
+if (low.indexOf('дискриминант') >= 0 || low.indexOf('квадрат') >= 0 || low.indexOf('discriminant') >= 0) {
+botReply = state.lang === 'kk' ? 'Квадрат теңдеу үшін D = b² − 4ac. Егер D > 0 болса, 2 түбір: x = (-b ± √D) / (2a). D = 0 болса, 1 түбір. D < 0 болса, нақты түбірі жоқ!' :
+(state.lang === 'ru' ? 'Для квадратного уравнения дискриминант D = b² − 4ac. Если D > 0, 2 корня: x = (-b ± √D)/(2a). При D = 0 один корень, при D < 0 действительных корней нет!' :
+'For quadratic equation D = b² - 4ac. If D > 0, there are 2 roots: x = (-b ± √D)/(2a). If D = 0, one root. If D < 0, no real roots!');
+} else if (low.indexOf('сақ') >= 0 || low.indexOf('хандық') >= 0 || low.indexOf('тарих') >= 0 || low.indexOf('саки') >= 0 || low.indexOf('history') >= 0) {
+botReply = state.lang === 'kk' ? 'Қазақ хандығы 1465 жылы құрылған (Керей мен Жәнібек). Ал сақтар кезеңі — б.з.б. VIII–III ғғ. (Шілікті, Есік қорғандары).' :
+(state.lang === 'ru' ? 'Казахское ханство образовано в 1465 году ханами Кереем и Жанибеком. Эпоха саков датируется VIII–III вв. до н.э. (курганы Шиликти, Иссык).' :
+'The Kazakh Khanate was founded in 1465 by Kerei and Zhanibek. The Saka period dates back to VIII-III centuries BC (Shilikty, Issyk mounds).');
+} else if (low.indexOf('ньютон') >= 0 || low.indexOf('физика') >= 0 || low.indexOf('newton') >= 0) {
+botReply = state.lang === 'kk' ? 'Ньютонның 2-заңы: F = m * a. Күш масса мен үдеудің көбейтіндісіне тең. Өлшем бірлігі: 1 Ньютон (Н).' :
+(state.lang === 'ru' ? 'Второй закон Ньютона: F = m * a. Сила равна произведению массы на ускорение. Единица измерения: 1 Ньютон (Н).' :
+"Newton's 2nd law: F = m * a. Force equals mass times acceleration. Unit of measure: 1 Newton (N).");
+} else if (low.indexOf('балл') >= 0 || low.indexOf('грант') >= 0 || low.indexOf('score') >= 0) {
+botReply = state.lang === 'kk' ? 'Жоғары балл жинау үшін күн сайын 20+ тест тапсырып, қатемен жұмыс жасаңыз. Біздің платформа сіздің әлсіз тақырыптарыңызды автоматты түрде талдайды!' :
+(state.lang === 'ru' ? 'Чтобы набрать высокий балл на ЕНТ, решайте от 20 тестов ежедневно и делайте работу над ошибками. Платформа фиксирует ваши слабые темы!' :
+'To achieve a top score on UNT, practice 20+ questions daily and review mistakes. Our platform automatically targets your weak topics!');
+}
+state.tutor.push({ me: false, text: botReply });
+renderPage();
+} else if (k === 'chat') {
+var ci = document.getElementById('cm'); if (!ci.value.trim()) return;
+var d = new Date(), hh = ('0' + d.getHours()).slice(-2) + ':' + ('0' + d.getMinutes()).slice(-2);
+state.chat[state.room].push({ u: t('com.you'), t: hh, me: true, x: ci.value.trim() });
+renderPage();
+toast(t('toast.sent'));
+} else if (k === 'profile') {
+var p1El = document.getElementById('p1'), p2El = document.getElementById('p2'), p3El = document.getElementById('p3'), p4El = document.getElementById('p4'), p5El = document.getElementById('p5');
+if (p1El) state.user.first = p1El.value.trim();
+if (p2El) state.user.last = p2El.value.trim();
+if (p3El) state.user.city = p3El.value;
+if (p4El) state.user.grade = p4El.value;
+if (p5El) state.user.targetScore = Number(p5El.value) || 120;
+saveUserSettings();
+toast(t('toast.saved'));
+} else if (k === 'apply-form') {
+var ttl = document.getElementById('app-title').value;
+var nm = document.getElementById('ap-name').value.trim();
+state.requests.unshift({ n: nm || state.user.first, s: 'math', st: 'st.new' });
+closeModal();
+toast(t('mod.applySuccess'));
+if (state.route === 'panel') renderPage();
+} else if (k === 'promote-form') {
+var org = document.getElementById('pm-org').value.trim();
+var cTitle = document.getElementById('pm-title').value.trim();
+var cPrice = Number(document.getElementById('pm-price').value) || 45000;
+var cCity = document.getElementById('pm-city').value;
+var cPhone = document.getElementById('pm-phone').value.trim();
+var cEmail = document.getElementById('pm-email').value.trim();
+COURSES.unshift({
+id: Date.now(),
+title: { kk: cTitle, ru: cTitle, en: cTitle },
+org: org,
+city: cCity,
+fmt: 'online',
+subj: ['math', 'phys'],
+price: cPrice,
+rating: 5.0,
+ok: true,
+phone: cPhone,
+email: cEmail,
+promoted: true
+});
+state.audit.unshift([new Date().toLocaleTimeString(), 'provider', 'au.act1']);
+closeModal();
+toast(t('mod.promoteSuccess'));
+renderPage();
+} else if (k === 'report-form') {
+var rIdx = Number(document.getElementById('rep-idx').value);
+var reason = document.getElementById('rep-reason').value;
+if (state.chat[state.room][rIdx]) {
+state.chat[state.room][rIdx].hidden = true;
+state.queue.unshift({ id: Date.now(), type: 'ty.message', target: state.chat[state.room][rIdx].u + ' (' + t(reason) + ')', status: 'st.review' });
+}
+closeModal();
+toast(t('mod.reportSuccess'));
+renderPage();
+} else if (k === 'forgot-form') {
+var btn = document.getElementById('fg-btn');
+var codeBox = document.getElementById('fg-code-box');
+var pwBox = document.getElementById('fg-pw-box');
+var hint = document.getElementById('fg-hint');
+if (codeBox.style.display === 'none') {
+codeBox.style.display = 'block';
+pwBox.style.display = 'block';
+hint.textContent = t('mod.codeHint', { code: '482910' });
+btn.textContent = t('mod.savePass');
+} else {
+var inpCode = document.getElementById('fg-code').value.trim();
+var newP = document.getElementById('fg-pw').value.trim();
+if (inpCode === '482910' && newP) {
+closeModal();
+toast(t('mod.passUpdated'));
+} else {
+toast(t('mod.badCode'));
+}
+}
+}
+});
+window.addEventListener('hashchange', function () {
+state.focusMain = true;
+render();
+});
+// SECTION: init
+loadSettings();
+render();
+initLiveWallpaper();
+})();
+</script>
+</body>
+</html>
